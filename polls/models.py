@@ -6,6 +6,7 @@ from django.utils.encoding import python_2_unicode_compatible
 
 from django.db import models
 
+from datetime import timedelta
 from django.utils import timezone
 
 
@@ -18,8 +19,7 @@ class Question(models.Model):
         return self.question_text
 
     def was_published_recently(self):
-        # return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
-        pass;
+        return self.pub_date >= timezone.now() - timedelta(days=1)
 
 @python_2_unicode_compatible
 class Choice(models.Model):

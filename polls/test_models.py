@@ -39,11 +39,11 @@ class QuestionModelTest(TestCase):
 
     def test_was_published_recently_fails(self):
         question_old = Question.objects.get(pk=1)
-        self.assertTrue(question_old.was_published_recently())
+        self.assertFalse(question_old.was_published_recently())
 
     def test_was_published_recently_passes(self):
         question_new = Question.objects.get(pk=2)
-        self.assertFalse(question_new.was_published_recently())
+        self.assertTrue(question_new.was_published_recently())
 
     def test_question_str_name(self):
         question = Question.objects.get(pk=1)
