@@ -36,7 +36,7 @@ def vote(request, question_pk):
             'question': question,
             'error_message': "You didn't select a choice.",
         }
-        return render(request, 'polls/detail.html', context)
+        return render(request, 'detail.html', context)
     else:
         selected_choice.votes += 1;
         selected_choice.save()

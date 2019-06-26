@@ -119,3 +119,38 @@ class QuestionVoteViewTest(TestCase):
         question = Question.objects.get(pk=1)
         response = self.client.get(reverse('polls:vote', kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
+
+    def test_voting_choice_updates(self):
+
+        question = Question.objects.get(pk=1)
+
+        choice = Choice.objects.get(pk=2)
+        old_vote = choice.votes
+
+        data = {
+            'choice': '2'
+        }
+        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+
+        choice = Choice.objects.get(pk=2)
+        new_vote = choice.votes
+
+        self.assertEqual(old_vote+1, new_vote)
+
+    def test_voting_redirects_to_results(self):
+        question = Question.objects.get(pk=1)
+        data = {
+            'choice': '1'
+        }
+        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+        self.assertRedirects(response,
+            expected_url=reverse('polls:results', kwargs={'question_pk': question.pk}),
+            status_code=302, target_status_code=200)
+
+    def test_no_choice_selection_returns_error(self):
+        question = Question.objects.get(pk=1)
+        data = {} # provide no choice
+        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+
+        returned_error = response.context['error_message']
+        self.assertEqual("You didn't select a choice.", returned_error)
