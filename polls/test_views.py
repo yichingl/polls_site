@@ -96,6 +96,21 @@ class QuestionVoteViewTest(TestCase):
             pub_date = timezone.now()
         )
 
+        # create Choice data
+        question = Question.objects.get(pk=1)
+        Choice.objects.create(
+            question = question,
+            choice_text = 'choice 1',
+        )
+        Choice.objects.create(
+            question = question,
+            choice_text = 'choice 2',
+        )
+        Choice.objects.create(
+            question = question,
+            choice_text = 'choice 3',
+        )
+
     def test_view_url_exists_at_desired_location(self):
         response = self.client.get('/polls/1/vote/')
         self.assertEqual(response.status_code, 200)

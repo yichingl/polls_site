@@ -7,7 +7,7 @@
 
 
 {% if question.choice_set %}
-  <form action="{% url 'polls:vote' question.pk %} method="post">
+  <form action="{% url 'polls:vote' question_pk=question.pk %}" method="post">
     {% csrf_token %}
     {% for choice in question.choice_set.all %}
       <input type="radio" name="choice" id="choice{{ forloop.counter }}"

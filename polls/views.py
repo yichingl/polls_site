@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.http import HttpResponse
-
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 
 from models import Question, Choice
 
@@ -27,4 +27,17 @@ def results(request, question_pk):
     return HttpResponse("You're looking at results of question %s" % question_pk)
 
 def vote(request, question_pk):
-    return HttpResponse("You're voting on results of question %s" % question_pk)
+    question = get_object_or_404(Question, pk=question_pk)
+    try:
+        selected_choice = question.choice_set.get(pk=request.POST['choice'])
+    except (KeyError, Choice.DoesNotExist):
+        # redisplay question voting form with error message
+        context = {
+            'question': question,
+            'error_message': "You didn't select a choice.",
+        }
+        return render(request, 'polls/detail.html', context)
+    else:
+        selected_choice.votes += 1;
+        selected_choice.save()
+        return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
