@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^(?P<question_pk>[0-9]+)/$', views.detail, name='detail'),
     # url for: /polls/<int:pk>/results/
     url(r'^(?P<question_pk>[0-9]+)/results/$', views.results, name='results'),
+    # url for: /polls/<int:pk>/vote/
+    url(r'^(?P<question_pk>[0-9]+)/vote/$', views.vote, name='vote'),
 ]
