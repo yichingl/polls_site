@@ -1,0 +1,15 @@
+
+<h1>{{question.question_text}}</h1>
+
+{% if question.choice_set %}
+  <ul>
+    {% for choice in question.choice_set.all %}
+      <li>{{ choice.choice_text }} -- {{ choice.votes }}
+        vote{{ choice.votes|pluralize}}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>This question doesn't have any choices yet!</p>
+{% endif %}
+
+<a href="{% url 'polls:detail' question_pk=question.pk %}">Vote again?</a>
