@@ -5,6 +5,7 @@ from django.test import TestCase
 from polls.models import Question, Choice
 
 from datetime import date
+from django.utils import timezone
 
 class QuestionModelTest(TestCase):
     @classmethod
@@ -14,6 +15,11 @@ class QuestionModelTest(TestCase):
         Question.objects.create(
             question_text = 'this is the question?',
             pub_date = date(2018, 7, 20)
+        )
+
+        Question.objects.create(
+            question_text = 'this is another question?',
+            pub_date = timezone.now()
         )
 
     def test_question_label(self):
@@ -31,6 +37,13 @@ class QuestionModelTest(TestCase):
         field_label = question._meta.get_field('pub_date').verbose_name
         self.assertEquals(field_label, 'date published')
 
+    def test_was_published_recently_fails(self):
+        question_old = Question.objects.get(pk=1)
+        self.assertTrue(question_old.was_published_recently())
+
+    def test_was_published_recently_passes(self):
+        question_new = Question.objects.get(pk=2)
+        self.assertFalse(question_new.was_published_recently())
 
     def test_question_str_name(self):
         question = Question.objects.get(pk=1)
@@ -77,7 +90,6 @@ class ChoiceModelTest(TestCase):
         choice = Choice.objects.get(pk=1)
         expected_default_choice_value = 0
         self.assertEquals(expected_default_choice_value, choice.votes)
-
 
     def test_choice_str_name(self):
         choice = Choice.objects.get(pk=1)

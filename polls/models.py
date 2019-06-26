@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models
-
 # to support Python 2
 from django.utils.encoding import python_2_unicode_compatible
+
+from django.db import models
+
+from django.utils import timezone
+
 
 @python_2_unicode_compatible
 class Question(models.Model):
@@ -13,6 +16,10 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_text
+
+    def was_published_recently(self):
+        # return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+        pass;
 
 @python_2_unicode_compatible
 class Choice(models.Model):
