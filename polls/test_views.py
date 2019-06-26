@@ -56,6 +56,17 @@ class QuestionDetailViewTest(TestCase):
         response = self.client.get(reverse('polls:detail', kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
 
+    def test_gets_correct_existing_object(self):
+        question = Question.objects.get(pk=1)
+        response = self.client.get(reverse('polls:detail', kwargs={'question_pk': question.pk}))
+        returned_question = response.context['question']
+        self.assertEqual(question, returned_question)
+
+    def test_returns_404_nonexisting_object(self):
+        response = self.client.get(reverse('polls:detail', kwargs={'question_pk': 30}))
+        self.assertEqual(response.status_code, 404)
+
+
 class QuestionResultsViewTest(TestCase):
 
     @classmethod
