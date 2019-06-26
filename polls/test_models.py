@@ -59,7 +59,7 @@ class ChoiceModelTest(TestCase):
 
     def test_choice_text_length(self):
         choice = Choice.objects.get(id=1)
-        max_length = hoice._meta.get_field('choice_text').max_length
+        max_length = choice._meta.get_field('choice_text').max_length
         self.assertEquals(max_length, 200)
 
     def test_votes_label(self):
