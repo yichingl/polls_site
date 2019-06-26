@@ -4,18 +4,16 @@ from __future__ import unicode_literals
 from django.http import HttpResponse
 
 from django.shortcuts import render
-from django.template import loader
 
 from models import Question, Choice
 
 def index(request):
-    template = loader.get_template('index.html')
 
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {
         'latest_question_list': latest_question_list,
     }
-    return HttpResponse(template.render(context, request));
+    return render(request, 'index.html', context);
 
 def detail(request, question_pk):
     return HttpResponse("You're looking at question %s" % question_pk)
