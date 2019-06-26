@@ -39,3 +39,22 @@ class PollsDetailViewTest(TestCase):
         question = Question.objects.get(pk=1)
         response = self.client.get(reverse('polls:detail', kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
+
+class PollsResultsViewTest(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        # create Question data
+        Question.objects.create(
+            question_text = 'this is the question?',
+            pub_date = date(2018, 7, 20)
+        )
+
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/polls/1/results')
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_url_accessible_by_name(self):
+        question = Question.objects.get(pk=1)
+        response = self.client.get(reverse('polls:results', kwargs={'question_pk': question.pk}))
+        self.assertEqual(response.status_code, 200)

@@ -9,4 +9,4 @@ def index(request):
     return HttpResponse("Hello!  Polls index.")
 
 def detail(request, question_pk):
-    return HttpResponse("Hello!  Polls view for pk: " + str(question_pk))
+    return HttpResponse("You're looking at question %s" % question_id)
