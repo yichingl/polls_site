@@ -31,6 +31,12 @@ class QuestionModelTest(TestCase):
         field_label = question._meta.get_field('pub_date').verbose_name
         self.assertEquals(field_label, 'date published')
 
+
+    def test_question_str_name(self):
+        question = Question.objects.get(pk=1)
+        expected_object_name = question.question_text
+        self.assertEquals(expected_object_name, str(question))
+
 class ChoiceModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -71,3 +77,9 @@ class ChoiceModelTest(TestCase):
         choice = Choice.objects.get(pk=1)
         expected_default_choice_value = 0
         self.assertEquals(expected_default_choice_value, choice.votes)
+
+
+    def test_choice_str_name(self):
+        choice = Choice.objects.get(pk=1)
+        expected_object_name = choice.choice_text
+        self.assertEquals(expected_object_name, str(choice))
