@@ -1,20 +1,20 @@
-from urllib2 import urlopen
+import urllib2
+import os
 
 
-def read_url_data():
+def read_url_data(url):
     """ Reads data at given url and returns a string containing contents. """
 
-    url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     try:
-        response = urlopen(url)
-        data_str = response.read()
+        response = urllib2.urlopen(url)
+        data_str = response.read().replace("\r","").replace("\n","")
+        return data_str
     except urllib2.URLError as e:
         print(e.reason)
     except urllib2.HTTPError as e:
         print(e.code)
         print(e.read())
 
-    return data_str
 
 
 if __name__ == '__main__':

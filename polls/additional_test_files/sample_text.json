@@ -26,42 +26,42 @@
    "N Size": "17,507"
  },
  {
-   "Geography": "California",
-   "Time": 2014,
+   "Geography": "New York",
+   "Time": 2011,
    "Demographic": "Aggregate",
    "Demographic Value": "Aggregate",
-   "Very conservative": 0.05885334074,
-   "Conservative, (or)": 0.2429040722,
-   "Moderate": 0.3324558544,
-   "Liberal, (or)": 0.2079491747,
-   "Very liberal": 0.06693515199,
-   "NA": 0.09090240599,
-   "N Size": "17,351"
+   "Very conservative": 0.05414788787,
+   "Conservative, (or)": 0.269461165,
+   "Moderate": 0.3227661228,
+   "Liberal, (or)": 0.1942772663,
+   "Very liberal": 0.0668926441,
+   "NA": 0.09245491392,
+   "N Size": "11,710"
  },
  {
-   "Geography": "California",
+   "Geography": "New York",
+   "Time": 2010,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.04865059808,
+   "Conservative, (or)": 0.2575724524,
+   "Moderate": 0.3313043565,
+   "Liberal, (or)": 0.1995794042,
+   "Very liberal": 0.06677251818,
+   "NA": 0.09612067073,
+   "N Size": "9,363"
+ },
+ {
+   "Geography": "Pennsylvania",
    "Time": 2013,
    "Demographic": "Aggregate",
    "Demographic Value": "Aggregate",
-   "Very conservative": 0.06123634089,
-   "Conservative, (or)": 0.247041515,
-   "Moderate": 0.3293768822,
-   "Liberal, (or)": 0.2102205474,
-   "Very liberal": 0.06067173951,
-   "NA": 0.09145297501,
-   "N Size": "17,355"
- },
- {
-   "Geography": "California",
-   "Time": 2012,
-   "Demographic": "Aggregate",
-   "Demographic Value": "Aggregate",
-   "Very conservative": 0.06455988061,
-   "Conservative, (or)": 0.2677405128,
-   "Moderate": 0.3223000471,
-   "Liberal, (or)": 0.2062795852,
-   "Very liberal": 0.06287804562,
-   "NA": 0.07624192864,
-   "N Size": "19,297"
+   "Very conservative": 0.08044835955,
+   "Conservative, (or)": 0.290464713,
+   "Moderate": 0.3333485901,
+   "Liberal, (or)": 0.176129014,
+   "Very liberal": 0.04305277381,
+   "NA": 0.07655654957,
+   "N Size": "8,377"
  }
 ]
