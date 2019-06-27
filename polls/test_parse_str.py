@@ -1,9 +1,9 @@
 import unittest
-import parse_str
+from additional_test_files.parse_str import read_url_data
 
 class ParseStrTestCase(unittest.TestCase):
     def setUp(self):
-        self.text = parse_str.read_url_data()
+        self.text = read_url_data()
 
     def tearDown(self):
         pass;

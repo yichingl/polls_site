@@ -1,0 +1,67 @@
+[
+ {
+   "Geography": "California",
+   "Time": 2016,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.06371055471,
+   "Conservative, (or)": 0.2364214696,
+   "Moderate": 0.3228010786,
+   "Liberal, (or)": 0.2129540568,
+   "Very liberal": 0.07827600982,
+   "NA": 0.08583683037,
+   "N Size": "17,506"
+ },
+ {
+   "Geography": "California",
+   "Time": 2015,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.05999609205,
+   "Conservative, (or)": 0.2420036219,
+   "Moderate": 0.3204061868,
+   "Liberal, (or)": 0.2140984385,
+   "Very liberal": 0.07170303084,
+   "NA": 0.09179262985,
+   "N Size": "17,507"
+ },
+ {
+   "Geography": "California",
+   "Time": 2014,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.05885334074,
+   "Conservative, (or)": 0.2429040722,
+   "Moderate": 0.3324558544,
+   "Liberal, (or)": 0.2079491747,
+   "Very liberal": 0.06693515199,
+   "NA": 0.09090240599,
+   "N Size": "17,351"
+ },
+ {
+   "Geography": "California",
+   "Time": 2013,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.06123634089,
+   "Conservative, (or)": 0.247041515,
+   "Moderate": 0.3293768822,
+   "Liberal, (or)": 0.2102205474,
+   "Very liberal": 0.06067173951,
+   "NA": 0.09145297501,
+   "N Size": "17,355"
+ },
+ {
+   "Geography": "California",
+   "Time": 2012,
+   "Demographic": "Aggregate",
+   "Demographic Value": "Aggregate",
+   "Very conservative": 0.06455988061,
+   "Conservative, (or)": 0.2677405128,
+   "Moderate": 0.3223000471,
+   "Liberal, (or)": 0.2062795852,
+   "Very liberal": 0.06287804562,
+   "NA": 0.07624192864,
+   "N Size": "19,297"
+ }
+]

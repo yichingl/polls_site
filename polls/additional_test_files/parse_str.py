@@ -1,8 +1,6 @@
 from urllib2 import urlopen
 
 
-
-
 def read_url_data():
     """ Reads data at given url and returns a string containing contents. """
 
