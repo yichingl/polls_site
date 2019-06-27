@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
+from urllib2 import urlopen
 
 from models import Question, Choice
 
@@ -45,3 +46,12 @@ def vote(request, question_pk):
         selected_choice.votes += 1;
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
+
+def read_url_data(request):
+    url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
+    response = urlopen(url)
+    data_str = response.read()
+    context = {
+        'data_str': data_str,
+    }
+    return render(request, 'read_url_data_view.html', context)
