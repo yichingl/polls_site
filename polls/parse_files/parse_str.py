@@ -18,5 +18,10 @@ def read_url_data(url):
 
 
 if __name__ == '__main__':
-    data_str = read_url_data()
+
+    rel_url = "parse_files/sample_text.json"
+    abs_url = os.path.abspath(rel_url)
+    url_local = "file://" + abs_url
+
+    data_str = read_url_data(url_local)
     print(data_str)

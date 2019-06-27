@@ -1,11 +1,12 @@
 import unittest
 import os
-from additional_test_files.parse_str import read_url_data
+# from additional_test_files.parse_str import read_url_data
+from parse_str import read_url_data
 
 class ParseStrTestCase(unittest.TestCase):
     def setUp(self):
 
-        rel_url = "additional_test_files/sample_text.json"
+        rel_url = "parse_files/sample_text.json"
         abs_url = os.path.abspath(rel_url)
         url_local = "file://" + abs_url
 
