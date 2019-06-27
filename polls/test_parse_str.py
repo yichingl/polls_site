@@ -9,7 +9,7 @@ class ParseStrTestCase(unittest.TestCase):
         abs_url = os.path.abspath(rel_url)
         url_local = "file://" + abs_url
 
-        url_online = url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
+        url_online = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
 
         self.local_text = read_url_data(url_local)
         self.online_text = read_url_data(url_online)
