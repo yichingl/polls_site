@@ -5,7 +5,7 @@ import re
 def get_json_parse(group, key_name):
     """ Given a key and group name, returns a json format regex string. """
 
-    return '"{}": "(?P<{}>.+?)"'.format(group, key_name)
+    return '"{}": (?P<{}>.+?),'.format(group, key_name)
 
 def read_url_data(url):
     """ Reads data at given url and returns response object. """
@@ -68,7 +68,7 @@ def parse_for_very_consv(response):
     group_key_dict = {"key1":group}
 
     regex_dict = {
-        key_name: re.compile(r"{}".format(get_json_parse(group, key_name)))
+        'key1': re.compile(r'"Very conservative": (?P<key1>.+?),')
     }
 
     line = response.readline()
