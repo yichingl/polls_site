@@ -68,7 +68,7 @@ def parse_for_very_consv(response):
     group_key_dict = {"key1":group}
 
     regex_dict = {
-        'key1': re.compile(r'"Very conservative": (?P<key1>.+?),')
+        key_name: re.compile(r"{}".format(get_json_parse(group, key_name)))
     }
 
     line = response.readline()
@@ -85,6 +85,46 @@ def parse_for_very_consv(response):
         line = response.readline()
 
     return consv_dict
+
+def parse_for_2(response):
+    """ Parses given response object and returns a dict containing
+        entry# and state,consv as key-value pairs. """
+
+    group1 = "Very conservative"
+    key_name1 = "key1"
+
+    group2 = "Geography"
+    key_name2 = "key2"
+
+    out_dict = {}
+    group_key_dict = {key_name1:group1, key_name2:group2}
+
+    regex_dict = {
+        key_name1: re.compile(r"{}".format(get_json_parse(group1, key_name1))),
+        key_name2: re.compile(r"{}".format(get_json_parse(group2, key_name2))),
+    }
+
+    line = response.readline()
+
+    cnt = 1;
+    while line:
+        group, match = _parse_line(line, regex_dict)
+
+        if match:
+
+            # case for state match, which is first
+            if group == key_name2: # geography
+                out_dict[str(cnt)] = {group_key_dict[group]:match.group(group)}
+            elif group == key_name1: # very conservative
+                out_dict[str(cnt)][group_key_dict[group]] = match.group(group)
+                # every entry has a "geography" and "very conservative" value
+                # after both have been processed, increment entry count
+                cnt += 1;
+
+        # increment
+        line = response.readline()
+
+    return out_dict
 
 
 if __name__ == '__main__':

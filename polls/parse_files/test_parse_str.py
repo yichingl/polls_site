@@ -1,7 +1,8 @@
+
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv
+from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv, parse_for_2
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -26,6 +27,9 @@ class ParseStrTestCase(unittest.TestCase):
 
         response = read_url_data(url_local)
         self.consv_dict = parse_for_very_consv(response)
+
+        response = read_url_data(url_local)
+        self.out_dict = parse_for_2(response)
 
 
     def tearDown(self):
@@ -62,6 +66,16 @@ class ParseStrTestCase(unittest.TestCase):
             "4":{"Very conservative":"0.04865059808"},
             "5":{"Very conservative":"0.08044835955"}}
         self.assertEqual(expected_consv_dict, self.consv_dict)
+
+
+    def test_parse_for_2(self):
+        expected_out_dict = {
+            "1":{"Very conservative":"0.06371055471", 'Geography': '"California"'},
+            "2":{"Very conservative":"0.05999609205", 'Geography': '"California"'},
+            "3":{"Very conservative":"0.05414788787", 'Geography': '"New York"'},
+            "4":{"Very conservative":"0.04865059808", 'Geography': '"New York"'},
+            "5":{"Very conservative":"0.08044835955", 'Geography': '"Pennsylvania"'}}
+        self.assertEqual(expected_out_dict, self.out_dict)
 
 
 
