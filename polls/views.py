@@ -6,6 +6,8 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from urllib2 import urlopen
 
+from parse_files.parse_str import read_url_data, parse_for_given_groups
+
 from models import Question, Choice
 
 def index(request):
@@ -47,11 +49,12 @@ def vote(request, question_pk):
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
 
-def read_url_data(request):
+def parse_url_data(request):
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
-    response = urlopen(url)
-    data_str = response.read()
+    response = read_url_data(url)
+    data_dict = parse_for_given_groups(response,
+        ["Very conservative","Geography","Time","Conservative, (or), ", "N Size"])
     context = {
-        'data_str': data_str,
+        'data_str': str(data_dict),
     }
     return render(request, 'read_url_data_view.html', context)

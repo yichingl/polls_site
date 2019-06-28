@@ -2,7 +2,7 @@
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv, parse_for_2, parse_for_given_groups
+from parse_str import read_url_data, parse_for_states, parse_for_very_consv, parse_for_2, parse_for_given_groups
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -33,18 +33,11 @@ class ParseStrTestCase(unittest.TestCase):
 
         response = read_url_data(url_local)
         self.all_dict = parse_for_given_groups(response,
-            ["Very conservative","Geography","Time"])
+            ["Very conservative","Geography","N Size"])
 
 
     def tearDown(self):
         pass;
-
-    def test_get_json_parse(self):
-        group = "Very liberal"
-        key_name = "very_liberal"
-        json_str = get_json_parse(group, key_name)
-        expected_json_str = '"Very liberal": (?P<very_liberal>.+?),'
-        self.assertEqual(expected_json_str, json_str)
 
     def test_local_contents_read_correctly(self):
         expected_text_excerpt = '[ {   "Geography": '
@@ -57,41 +50,41 @@ class ParseStrTestCase(unittest.TestCase):
         self.assertEqual(expected_text_excerpt, read_text_excerpt)
 
     def test_parse_for_states(self):
-        expected_states_dict = {'1': {'Geography': '"California"'},
-        '2': {'Geography': '"California"'}, '3': {'Geography': '"New York"'},
-        '4': {'Geography': '"New York"'}, '5': {'Geography': '"Pennsylvania"'}}
+        expected_states_dict = {0: {'Geography': 'California'},
+        1: {'Geography': 'California'}, 2: {'Geography': 'New York'},
+        3: {'Geography': 'New York'}, 4: {'Geography': 'Pennsylvania'}}
         self.assertEqual(expected_states_dict, self.states_dict)
 
     def test_parse_for_very_consv(self):
         expected_consv_dict = {
-            "1":{"Very conservative":"0.06371055471"},
-            "2":{"Very conservative":"0.05999609205"},
-            "3":{"Very conservative":"0.05414788787"},
-            "4":{"Very conservative":"0.04865059808"},
-            "5":{"Very conservative":"0.08044835955"}}
+            0:{"Very conservative":0.06371055471},
+            1:{"Very conservative":0.05999609205},
+            2:{"Very conservative":0.05414788787},
+            3:{"Very conservative":0.04865059808},
+            4:{"Very conservative":0.08044835955}}
         self.assertEqual(expected_consv_dict, self.consv_dict)
 
     def test_parse_for_2(self):
         expected_out_dict = {
-            "1":{"Very conservative":"0.06371055471", 'Geography': '"California"'},
-            "2":{"Very conservative":"0.05999609205", 'Geography': '"California"'},
-            "3":{"Very conservative":"0.05414788787", 'Geography': '"New York"'},
-            "4":{"Very conservative":"0.04865059808", 'Geography': '"New York"'},
-            "5":{"Very conservative":"0.08044835955", 'Geography': '"Pennsylvania"'}}
+            0:{"Very conservative":0.06371055471, 'Geography': 'California'},
+            1:{"Very conservative":0.05999609205, 'Geography': 'California'},
+            2:{"Very conservative":0.05414788787, 'Geography': 'New York'},
+            3:{"Very conservative":0.04865059808, 'Geography': 'New York'},
+            4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania'}}
         self.assertEqual(expected_out_dict, self.out_dict)
 
     def test_parse_for_given_groups(self):
         expected_out_dict = {
-            "0":{"Very conservative":"0.06371055471",
-                'Geography': '"California"', 'Time': "2016"},
-            "1":{"Very conservative":"0.05999609205",
-                'Geography': '"California"', 'Time': "2015"},
-            "2":{"Very conservative":"0.05414788787",
-                'Geography': '"New York"', 'Time': "2011"},
-            "3":{"Very conservative":"0.04865059808",
-                'Geography': '"New York"', 'Time': "2010"},
-            "4":{"Very conservative":"0.08044835955",
-                'Geography': '"Pennsylvania"', 'Time': "2013"}}
+            0:{"Very conservative":0.06371055471, 'Geography': 'California',
+                "N Size": "17,506"},
+            1:{"Very conservative":0.05999609205, 'Geography': 'California',
+                "N Size": "17,507"},
+            2:{"Very conservative":0.05414788787, 'Geography': 'New York',
+                "N Size": "11,710"},
+            3:{"Very conservative":0.04865059808, 'Geography': 'New York',
+                "N Size": "9,363"},
+            4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania',
+                "N Size": "8,377"}}
         self.assertEqual(expected_out_dict, self.all_dict)
 
 
