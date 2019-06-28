@@ -53,7 +53,7 @@ def parse_url_data(request):
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     response = read_url_data(url)
     data_dict = parse_for_given_groups(response,
-        ["Very conservative","Geography","Time","Conservative, (or), ", "N Size"])
+        ["Very conservative","Geography","Time","Conservative, (or)", "N Size"])
     context = {
         'data_str': str(data_dict),
     }

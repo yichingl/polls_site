@@ -69,8 +69,6 @@ def parse_for_given_groups(response, list_of_groups):
 
     data = json.loads(response.read())
 
-    list_of_groups = ["Very conservative", "Geography", "N Size"]
-
     out_dict = {}
     for cnt, entry in enumerate(data):
         out_dict[cnt] = {}
