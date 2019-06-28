@@ -2,6 +2,10 @@ import urllib2
 import os
 import re
 
+def get_json_parse(group, key_name):
+    """ Given a key and group name, returns a json format regex string. """
+
+    return '"{}": "(?P<{}>.+?)"'.format(group, key_name)
 
 def read_url_data(url):
     """ Reads data at given url and returns response object. """
@@ -28,22 +32,24 @@ def parse_for_states(response):
     """ Parses given response object and returns a dict containing
         entry# and state as key-value pairs. """
 
+    group = "Geography"
+    key_name = "key1"
+
     states_dict = {}
+    group_key_dict = {"key1":group}
 
     regex_dict = {
-    # "Geography": "(.+?)"
-    # "Geography": "(?P<geography>.+?)"
-        'geography': re.compile(r'"Geography": "(?P<geography>.+?)"')
+        key_name: re.compile(r"{}".format(get_json_parse(group, key_name)))
     }
 
     line = response.readline()
 
     cnt = 1;
     while line:
-        key, match = _parse_line(line, regex_dict)
+        group, match = _parse_line(line, regex_dict)
 
         if match:
-            states_dict[str(cnt)] = match.group('geography')
+            states_dict[str(cnt)] = {group_key_dict[group]:match.group(group)}
             cnt+=1;
 
         # increment
@@ -51,6 +57,34 @@ def parse_for_states(response):
 
     return states_dict
 
+def parse_for_very_consv(response):
+    """ Parses given response object and returns a dict containing
+        entry# and state as key-value pairs. """
+
+    group = "Very conservative"
+    key_name = "key1"
+
+    consv_dict = {}
+    group_key_dict = {"key1":group}
+
+    regex_dict = {
+        key_name: re.compile(r"{}".format(get_json_parse(group, key_name)))
+    }
+
+    line = response.readline()
+
+    cnt = 1;
+    while line:
+        group, match = _parse_line(line, regex_dict)
+
+        if match:
+            consv_dict[str(cnt)] = {group_key_dict[group]:match.group(group)}
+            cnt+=1;
+
+        # increment
+        line = response.readline()
+
+    return consv_dict
 
 
 if __name__ == '__main__':

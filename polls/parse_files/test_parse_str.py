@@ -1,7 +1,8 @@
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states
+from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv
+
 
 class ParseStrTestCase(unittest.TestCase):
     def setUp(self):
@@ -23,8 +24,18 @@ class ParseStrTestCase(unittest.TestCase):
         response = read_url_data(url_local)
         self.states_dict = parse_for_states(response)
 
+        response = read_url_data(url_local)
+        self.consv_dict = parse_for_very_consv(response)
+
     def tearDown(self):
         pass;
+
+    def test_get_json_parse(self):
+        group = "Very liberal"
+        key_name = "very_liberal"
+        json_str = get_json_parse(group, key_name)
+        expected_json_str = '"Very liberal": "(?P<very_liberal>.+?)"'
+        self.assertEqual(expected_json_str, json_str)
 
     def test_local_contents_read_correctly(self):
         expected_text_excerpt = '[ {   "Geography": '
@@ -37,9 +48,36 @@ class ParseStrTestCase(unittest.TestCase):
         self.assertEqual(expected_text_excerpt, read_text_excerpt)
 
     def test_parse_for_states(self):
-        states_dict = {"1":"California", "2":"California",
-            "3":"New York", "4":"New York", "5":"Pennsylvania"}
+        states_dict = {
+            "1":{"Geography":"California"}, "2":{"Geography":"California"},
+            "3":{"Geography":"New York"}, "4":{"Geography":"New York"},
+            "5":{"Geography":"Pennsylvania"}}
         self.assertEqual(states_dict, self.states_dict)
+
+    def parse_for_very_consv(self):
+        consv_dict = {
+            "1":{"Very conservative":"0.06371055471"},
+            "2":{"Very conservative":"0.05999609205"},
+            "3":{"Very conservative":"0.05414788787"},
+            "4":{"Very conservative":"0.04865059808"},
+            "5":{"Very conservative":"0.08044835955"}}
+        self.assertEqual(consv_dict, self.consv_dict)
+
+    # def test_parse_for_time(self):
+    #     states_dict = {
+    #         "1":{"Geography":"California"}, "2":{"Geography":"California"},
+    #         "3":{"Geography":"New York"}, "4":{"Geography":"New York"},
+    #         "5":{"Geography":"Pennsylvania"}}
+    #     self.assertEqual(states_dict, self.time_dict)
+    #
+    # def test_parse_for_very_conservative(self):
+    #     consv_dict = {
+    #         "1":{"Very conservative":"0.06371055471"},
+    #         "2":{"Very conservative":"0.05999609205"},
+    #         "3":{"Very conservative":"0.05414788787"},
+    #         "4":{"Very conservative":"0.04865059808"},
+    #         "5":{"Very conservative":"0.08044835955"}}
+    #     self.assertEqual(consv_dict, self.consv_dict)
 
 if __name__ == '__main__':
     unittest.main()
