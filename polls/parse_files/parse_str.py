@@ -126,6 +126,43 @@ def parse_for_2(response):
 
     return out_dict
 
+def parse_for_given_groups(response, list_of_groups):
+    """ Parses given response object and returns a dict containing
+        entry# and group data as key-value pairs. """
+
+    group_key_dict = {}
+    regex_dict = {}
+
+    for cnt, group in enumerate(list_of_groups):
+        key_name = "key"+str(cnt)
+        group_key_dict[key_name] = group
+        regex_dict[key_name] = re.compile(r"{}".format(get_json_parse(group_key_dict[key_name], key_name)))
+    regex_dict["new_entry"] = re.compile(r"},")
+
+    all_dict = {}
+
+    line = response.readline()
+
+    cnt = 0;
+    while line:
+        group, match = _parse_line(line, regex_dict)
+
+        if match:
+
+            if group == "new_entry":
+                cnt += 1;
+            else:
+                # 2 cases: if entry already exists vs entry doesn't exist yet
+                if str(cnt) in all_dict:
+                    all_dict[str(cnt)][group_key_dict[group]] = match.group(group)
+                else:
+                    all_dict[str(cnt)] = {group_key_dict[group]:match.group(group)}
+
+        # increment
+        line = response.readline()
+
+    return all_dict
+
 
 if __name__ == '__main__':
 

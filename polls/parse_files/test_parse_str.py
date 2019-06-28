@@ -2,7 +2,7 @@
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv, parse_for_2
+from parse_str import read_url_data, parse_for_states, get_json_parse, parse_for_very_consv, parse_for_2, parse_for_given_groups
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -30,6 +30,10 @@ class ParseStrTestCase(unittest.TestCase):
 
         response = read_url_data(url_local)
         self.out_dict = parse_for_2(response)
+
+        response = read_url_data(url_local)
+        self.all_dict = parse_for_given_groups(response,
+            ["Very conservative","Geography","Time"])
 
 
     def tearDown(self):
@@ -67,7 +71,6 @@ class ParseStrTestCase(unittest.TestCase):
             "5":{"Very conservative":"0.08044835955"}}
         self.assertEqual(expected_consv_dict, self.consv_dict)
 
-
     def test_parse_for_2(self):
         expected_out_dict = {
             "1":{"Very conservative":"0.06371055471", 'Geography': '"California"'},
@@ -76,6 +79,20 @@ class ParseStrTestCase(unittest.TestCase):
             "4":{"Very conservative":"0.04865059808", 'Geography': '"New York"'},
             "5":{"Very conservative":"0.08044835955", 'Geography': '"Pennsylvania"'}}
         self.assertEqual(expected_out_dict, self.out_dict)
+
+    def test_parse_for_given_groups(self):
+        expected_out_dict = {
+            "0":{"Very conservative":"0.06371055471",
+                'Geography': '"California"', 'Time': "2016"},
+            "1":{"Very conservative":"0.05999609205",
+                'Geography': '"California"', 'Time': "2015"},
+            "2":{"Very conservative":"0.05414788787",
+                'Geography': '"New York"', 'Time': "2011"},
+            "3":{"Very conservative":"0.04865059808",
+                'Geography': '"New York"', 'Time': "2010"},
+            "4":{"Very conservative":"0.08044835955",
+                'Geography': '"Pennsylvania"', 'Time': "2013"}}
+        self.assertEqual(expected_out_dict, self.all_dict)
 
 
 
