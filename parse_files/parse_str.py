@@ -63,7 +63,7 @@ def parse_for_2(response):
     return out_dict
 
 
-def parse_for_given_groups(response, list_of_groups):
+def parse_for_pol_lean_groups(response, list_of_groups):
     """ Parses given response object and returns a dict containing
         entry# and group data as key-value pairs. """
 

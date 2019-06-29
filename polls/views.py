@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from urllib2 import urlopen
 
-from parse_files.parse_str import read_url_data, parse_for_given_groups
+from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups
 
 from models import Question, Choice
 
@@ -49,17 +49,17 @@ def vote(request, question_pk):
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
 
-def parse_url_data(request):
+def parse_pol_lean_data(request):
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     response = read_url_data(url)
-    data_dict = parse_for_given_groups(response,
+    data_dict = parse_for_pol_lean_groups(response,
         ["Very conservative","Geography","Time","Conservative, (or)", "N Size"])
     context = {
         'data_str': str(data_dict),
     }
     return render(request, 'read_url_data_view.html', context)
 
-def parse_pollster_url_data(request):
+def parse_pollster_data(request):
     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
     response = read_url_data(url)
     context = {

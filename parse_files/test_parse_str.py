@@ -2,7 +2,7 @@
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states, parse_for_very_consv, parse_for_2, parse_for_given_groups
+from parse_str import read_url_data, parse_for_states, parse_for_very_consv, parse_for_2, parse_for_pol_lean_groups
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -36,7 +36,7 @@ class ParseStrTestCase(unittest.TestCase):
         self.out_dict = parse_for_2(response)
 
         response = read_url_data(url_local)
-        self.all_dict = parse_for_given_groups(response,
+        self.all_dict = parse_for_pol_lean_groups(response,
             ["Very conservative","Geography","N Size"])
 
 

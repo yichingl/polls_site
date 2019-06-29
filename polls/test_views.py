@@ -155,28 +155,28 @@ class QuestionVoteViewTest(TestCase):
         returned_error = response.context['error_message']
         self.assertEqual("You didn't select a choice.", returned_error)
 
-class ParseUrlDataViewTest(TestCase):
+class ParsePolLeanDataViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         pass;
 
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/polls/parse_url_data/')
+        response = self.client.get('/polls/political_leanings/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get(reverse('polls:parse_url_data'))
+        response = self.client.get(reverse('polls:parse_pol_lean_data'))
         self.assertEqual(response.status_code, 200)
 
-class ParsePollsterUrlDataViewTest(TestCase):
+class ParsePollsterDataViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         pass;
 
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/polls/parse_pollster_url_data/')
+        response = self.client.get('/polls/pollster/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get(reverse('polls:parse_pollster_url_data'))
+        response = self.client.get(reverse('polls:parse_pollster_data'))
         self.assertEqual(response.status_code, 200)
