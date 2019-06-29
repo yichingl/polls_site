@@ -13,7 +13,7 @@ urlpatterns = [
     # url for: /polls/<int:pk>/vote/
     url(r'^(?P<question_pk>[0-9]+)/vote/$', views.vote, name='vote'),
     # url for: /polls/political_leanings/
-    url(r'^political_leanings/$', views.parse_pol_lean_data, name='parse_pol_lean_data'),
+    url(r'^political_leanings/$', views.parse_ny_data, name='parse_pol_lean_data'),
     # url for: /polls/pollster/
     url(r'^pollster/$', views.parse_pollster_data, name='parse_pollster_data'),
 

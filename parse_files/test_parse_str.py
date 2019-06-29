@@ -98,10 +98,7 @@ class ParseStrTestCase(unittest.TestCase):
 
     def test_parse_for_ny_data(self):
         expected_out_dict = {
-            "Geography": "New York",
             "Time": 2011,
-            "Demographic": "Aggregate",
-            "Demographic Value": "Aggregate",
             "Very conservative": 0.05414788787,
             "Conservative, (or)": 0.269461165,
             "Moderate": 0.3227661228,
@@ -109,7 +106,7 @@ class ParseStrTestCase(unittest.TestCase):
             "Very liberal": 0.0668926441,
             "NA": 0.09245491392,
             "N Size": "11,710"}
-        self.assertEqual(expected_out_dict, self.ny_dict[2011])
+        self.assertEqual(expected_out_dict, self.ny_dict[0])
 
     def test_parse_for_pol_lean_groups(self):
         expected_out_dict = {

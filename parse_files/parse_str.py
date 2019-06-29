@@ -83,16 +83,19 @@ def parse_for_ny_data(response):
 
     data = json.loads(response.read())
 
-    out_dict = {}
+    list_of_groups = ["Very conservative","Conservative, (or)",
+        "Moderate","Liberal, (or)", "Very liberal", "NA", "N Size", "Time"]
+
+    entries = []
     for entry in data:
 
         if entry["Geography"] == "New York":
             entry_dict = {}
-            for group in entry:
+            for group in list_of_groups:
                 entry_dict[group] = entry[group]
-            out_dict[entry["Time"]] = entry_dict
+            entries.append(entry_dict)
 
-    return out_dict
+    return entries
 
 def parse_for_pollster_groups(response):
     """ Parses given response object and returns a dict containing
