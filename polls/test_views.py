@@ -7,6 +7,7 @@ from django.urls import reverse
 from polls.models import Question, Choice
 
 from django.utils import timezone
+import datetime, pytz
 
 class QuestionsIndexViewTest(TestCase):
     @classmethod
@@ -202,3 +203,9 @@ class ParsePollsterDataViewTest(TestCase):
         question = Question.objects.get(pk=1)
         expected_question_text = "Do you approve or disapprove of the job Donald Trump is doing as president?"
         self.assertEqual(expected_question_text, question.question_text)
+
+    def test_date_of_question_added_to_database(self):
+        response = self.client.get(reverse('polls:parse_pollster_data'))
+        question = Question.objects.get(pk=1)
+        expected_datetime = pytz.UTC.localize(datetime.datetime(2017, 1, 10, 23, 32, 55))
+        self.assertEqual(expected_datetime, question.pub_date)

@@ -9,7 +9,7 @@ from django.utils import timezone
 import json
 import os
 
-from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_ny_data
+from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_ny_data, parse_for_datetime
 
 from models import Question, Choice
 
@@ -146,8 +146,8 @@ def parse_pollster_data(request):
 
         for question_info in poll_questions:
             question = Question.objects.get_or_create(
-                question_text = question_info["text"] ,
-                pub_date = timezone.now()
+                question_text = question_info["text"],
+                pub_date = parse_for_datetime(question_info["question"]["created_at"])
             )[0]
 
     return render(request, 'read_url_data_view.html', context)

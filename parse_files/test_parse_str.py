@@ -1,8 +1,9 @@
 
 import unittest
 import os
-# from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data
+import datetime
+
+from parse_str import read_url_data, parse_for_datetime
 from parse_str import parse_for_states, parse_for_very_consv, parse_for_2
 from parse_str import parse_for_pol_lean_groups, parse_for_ny_data
 
@@ -117,6 +118,11 @@ class ParseStrTestCase(unittest.TestCase):
             4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania',
                 "N Size": "8,377"}}
         self.assertEqual(expected_out_dict, self.all_dict)
+
+    def test_parse_for_datetime(self):
+        str_datetime = "2009-07-30T09:23:08.000Z"
+        expected_datetime = datetime.datetime(2009,07,30,9,23,8)
+        self.assertEqual(expected_datetime, parse_for_datetime(str_datetime))
 
 if __name__ == '__main__':
     unittest.main()

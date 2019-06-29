@@ -2,9 +2,11 @@ import urllib2
 import os
 import re
 import json
+import datetime
 
-import copy
-
+def parse_for_datetime(dstr):
+    """ Given a pollster datetime str, return a datetime object. """
+    return datetime.datetime.strptime(dstr, "%Y-%m-%dT%H:%M:%S.000Z")
 
 def read_url_data(url):
     """ Reads data at given url and returns response object. """
