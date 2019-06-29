@@ -168,6 +168,22 @@ class ParsePolLeanDataViewTest(TestCase):
         response = self.client.get(reverse('polls:parse_pol_lean_data'))
         self.assertEqual(response.status_code, 200)
 
+    def test_question_added_to_database(self):
+        response = self.client.get(reverse('polls:parse_pol_lean_data'))
+        question = Question.objects.get(pk=4)
+        expected_question_text = 'What was your political leaning in 2013?'
+        self.assertEqual(expected_question_text, question.question_text)
+
+    def test_choice_added_to_database(self):
+        response = self.client.get(reverse('polls:parse_pol_lean_data'))
+        question = Question.objects.get(pk=4)
+        choice = Choice.objects.get(
+            question = question,
+            choice_text = "Moderate")
+        expected_num_votes = 3251
+        self.assertEqual(expected_num_votes, choice.votes)
+
+
 class ParsePollsterDataViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
