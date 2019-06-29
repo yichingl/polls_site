@@ -4,7 +4,7 @@ import os
 # from additional_test_files.parse_str import read_url_data
 from parse_str import read_url_data
 from parse_str import parse_for_states, parse_for_very_consv, parse_for_2
-from parse_str import parse_for_pol_lean_groups, parse_for_pollster_groups
+from parse_str import parse_for_pol_lean_groups, parse_for_pollster_groups, parse_for_ny_data
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -39,6 +39,9 @@ class ParseStrTestCase(unittest.TestCase):
 
         response = read_url_data(url_local)
         self.consv_dict = parse_for_very_consv(response)
+
+        response = read_url_data(url_local)
+        self.ny_dict = parse_for_ny_data(response)
 
         response = read_url_data(url_local)
         self.out_dict = parse_for_2(response)
@@ -92,6 +95,21 @@ class ParseStrTestCase(unittest.TestCase):
             3:{"Very conservative":0.04865059808, 'Geography': 'New York'},
             4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania'}}
         self.assertEqual(expected_out_dict, self.out_dict)
+
+    def test_parse_for_ny_data(self):
+        expected_out_dict = {
+            "Geography": "New York",
+            "Time": 2011,
+            "Demographic": "Aggregate",
+            "Demographic Value": "Aggregate",
+            "Very conservative": 0.05414788787,
+            "Conservative, (or)": 0.269461165,
+            "Moderate": 0.3227661228,
+            "Liberal, (or)": 0.1942772663,
+            "Very liberal": 0.0668926441,
+            "NA": 0.09245491392,
+            "N Size": "11,710"}
+        self.assertEqual(expected_out_dict, self.ny_dict[2011])
 
     def test_parse_for_pol_lean_groups(self):
         expected_out_dict = {

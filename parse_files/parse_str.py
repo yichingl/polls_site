@@ -77,6 +77,23 @@ def parse_for_pol_lean_groups(response, list_of_groups):
 
     return out_dict
 
+def parse_for_ny_data(response):
+    """ Parses given political_leanings response object and returns a
+        dict containing entry# and question/answers data as key-value pairs. """
+
+    data = json.loads(response.read())
+
+    out_dict = {}
+    for entry in data:
+
+        if entry["Geography"] == "New York":
+            entry_dict = {}
+            for group in entry:
+                entry_dict[group] = entry[group]
+            out_dict[entry["Time"]] = entry_dict
+
+    return out_dict
+
 def parse_for_pollster_groups(response):
     """ Parses given response object and returns a dict containing
         entry# and group data as key-value pairs. """
