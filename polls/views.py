@@ -165,7 +165,7 @@ def parse_pollster_data(request):
                 Choice.objects.get_or_create(
                     question = question,
                     choice_text = choice["text"],
-                    votes = choice["value"],
+                    votes = int(choice["value"]/100.0*num_voters),
                 )
 
 

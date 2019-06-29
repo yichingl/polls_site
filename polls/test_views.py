@@ -219,5 +219,5 @@ class ParsePollsterDataViewTest(TestCase):
             choice_text = "Disapprove"
             )
 
-        expected_num_votes = 45
+        expected_num_votes = 450
         self.assertEqual(expected_num_votes, choice.votes)
