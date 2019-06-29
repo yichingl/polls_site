@@ -105,6 +105,7 @@ def parse_ny_data(url):
                 slug = 'New_York' + str(entry["Time"])
             )[0]
 
+
             # convert N Size string to an int
             num_voters = int(entry["N Size"].replace(",",""))
             # track sum of decided voders, use to calculate proper # of undecided
@@ -127,7 +128,7 @@ def parse_ny_data(url):
                 votes = num_voters - num_decided_voters,
             )
 
-def parse_pollster_data(url, num_polls_to_load=25):
+def parse_pollster_data(url):
     """ Extracts data from input pollster url to populate Question/Choice models
         in database. Should return the cursor for the next url."""
 
@@ -139,8 +140,8 @@ def parse_pollster_data(url, num_polls_to_load=25):
 
     next_cursor = data["next_cursor"]
 
-    # only load specified amount of polls
-    for poll_entry in poll_entries[:num_polls_to_load]:
+    # for every poll entry, process data
+    for poll_entry in poll_entries:
 
         # extract questions
         poll_questions = poll_entry["poll_questions"]
@@ -151,6 +152,7 @@ def parse_pollster_data(url, num_polls_to_load=25):
 
         # for each question, save the question and results
         for question_info in poll_questions:
+            # question = Question.objects.get_or_create(
             question = Question.objects.get_or_create(
                 question_text = question_info["text"],
                 pub_date = parse_for_datetime(question_info["question"]["created_at"]),

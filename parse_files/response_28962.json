@@ -1,0 +1,2172 @@
+{
+  "count": 28464,
+  "cursor": "28962",
+  "next_cursor": "28937",
+  "items": [
+    {
+      "slug": "gallup-28961",
+      "start_date": "2018-11-12",
+      "end_date": "2018-11-18",
+      "created_at": "2018-11-29T04:20:24.000Z",
+      "updated_at": "2018-11-29T00:20:24.000Z",
+      "survey_house": "Gallup",
+      "mode": "Live Phone",
+      "url": "http://news.gallup.com/poll/203207/trump-job-approval-weekly.aspx",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 1500,
+              "margin_of_error": 3,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 43
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 53
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "gallup-28960",
+      "start_date": "2018-11-05",
+      "end_date": "2018-11-11",
+      "created_at": "2018-11-29T04:20:09.000Z",
+      "updated_at": "2018-11-29T00:20:09.000Z",
+      "survey_house": "Gallup",
+      "mode": "Live Phone",
+      "url": "http://news.gallup.com/poll/203207/trump-job-approval-weekly.aspx",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 1500,
+              "margin_of_error": 3,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 38
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 56
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28959",
+      "start_date": "2018-11-25",
+      "end_date": "2018-11-27",
+      "created_at": "2018-11-29T04:19:33.000Z",
+      "updated_at": "2018-11-29T00:19:33.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28958",
+      "start_date": "2018-11-19",
+      "end_date": "2018-11-26",
+      "created_at": "2018-11-29T04:19:19.000Z",
+      "updated_at": "2018-11-29T00:19:19.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 49
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 49
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28957",
+      "start_date": "2018-11-18",
+      "end_date": "2018-11-20",
+      "created_at": "2018-11-29T04:18:35.000Z",
+      "updated_at": "2018-11-29T00:18:35.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 51
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 48
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28956",
+      "start_date": "2018-11-15",
+      "end_date": "2018-11-19",
+      "created_at": "2018-11-29T04:18:18.000Z",
+      "updated_at": "2018-11-29T00:18:18.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 50
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 49
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28955",
+      "start_date": "2018-11-14",
+      "end_date": "2018-11-18",
+      "created_at": "2018-11-29T04:17:42.000Z",
+      "updated_at": "2018-11-29T00:17:42.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 50
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 49
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28954",
+      "start_date": "2018-11-13",
+      "end_date": "2018-11-15",
+      "created_at": "2018-11-29T04:17:22.000Z",
+      "updated_at": "2018-11-29T00:17:22.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 49
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28953",
+      "start_date": "2018-11-12",
+      "end_date": "2018-11-14",
+      "created_at": "2018-11-29T04:17:06.000Z",
+      "updated_at": "2018-11-29T00:17:06.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28952",
+      "start_date": "2018-11-11",
+      "end_date": "2018-11-13",
+      "created_at": "2018-11-29T04:15:32.000Z",
+      "updated_at": "2018-11-29T00:15:32.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 46
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 52
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28951",
+      "start_date": "2018-11-08",
+      "end_date": "2018-11-12",
+      "created_at": "2018-11-29T04:15:10.000Z",
+      "updated_at": "2018-11-29T00:15:10.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 46
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 52
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28950",
+      "start_date": "2018-11-07",
+      "end_date": "2018-11-11",
+      "created_at": "2018-11-29T04:14:53.000Z",
+      "updated_at": "2018-11-29T00:14:53.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 46
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 52
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28949",
+      "start_date": "2018-11-06",
+      "end_date": "2018-11-08",
+      "created_at": "2018-11-29T04:14:29.000Z",
+      "updated_at": "2018-11-29T00:14:29.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28948",
+      "start_date": "2018-11-05",
+      "end_date": "2018-11-07",
+      "created_at": "2018-11-29T04:14:10.000Z",
+      "updated_at": "2018-11-29T00:14:10.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28947",
+      "start_date": "2018-11-04",
+      "end_date": "2018-11-06",
+      "created_at": "2018-11-29T04:13:51.000Z",
+      "updated_at": "2018-11-29T00:13:52.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "gallup-28946",
+      "start_date": "2018-10-28",
+      "end_date": "2018-11-04",
+      "created_at": "2018-11-06T20:46:02.000Z",
+      "updated_at": "2018-11-06T16:46:02.000Z",
+      "survey_house": "Gallup",
+      "mode": "Live Phone",
+      "url": "http://news.gallup.com/poll/203207/trump-job-approval-weekly.aspx",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 1500,
+              "margin_of_error": 3,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 40
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 54
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28945",
+      "start_date": "2018-11-01",
+      "end_date": "2018-11-05",
+      "created_at": "2018-11-06T20:45:08.000Z",
+      "updated_at": "2018-11-06T16:45:27.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 48
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28944",
+      "start_date": "2018-10-31",
+      "end_date": "2018-11-04",
+      "created_at": "2018-11-06T20:44:53.000Z",
+      "updated_at": "2018-11-06T16:44:53.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 50
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 49
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28943",
+      "start_date": "2018-10-30",
+      "end_date": "2018-11-01",
+      "created_at": "2018-11-06T20:44:30.000Z",
+      "updated_at": "2018-11-06T16:44:30.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 51
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 47
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "rasmussen-28942",
+      "start_date": "2018-10-29",
+      "end_date": "2018-10-31",
+      "created_at": "2018-11-06T20:44:11.000Z",
+      "updated_at": "2018-11-06T16:44:11.000Z",
+      "survey_house": "Rasmussen",
+      "mode": "IVR/Online",
+      "url": "http://www.rasmussenreports.com/public_content/politics/trump_administration/trump_approval_index_history",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1500,
+              "margin_of_error": 2.5,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 49
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 50
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "abc-post-28941",
+      "start_date": "2018-10-29",
+      "end_date": "2018-11-01",
+      "created_at": "2018-11-06T20:43:39.000Z",
+      "updated_at": "2018-11-06T16:43:39.000Z",
+      "survey_house": "ABC/Post",
+      "mode": "Live Phone",
+      "url": "https://apps.washingtonpost.com/g/page/politics/washington-post-abc-news-poll/2347/",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "Do you approve or disapprove of the way Donald Trump is handling his job as president? Do you approve/disapprove strongly or somewhat?",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 1255,
+              "margin_of_error": 3,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 40
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 53
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "If the election for the U.S. House of Representatives were being held today, would you vote for (the Democratic candidate) or (the Republican candidate) in your congressional district? Would you lean toward the(Democratic candidate) or toward the (Republican candidate)? (IF ALREADY VOTED) Did  you vote for the (Democratic candidate) or the (Republican candidate) in your congressional district?",
+          "question": {
+            "slug": "18-US-House",
+            "name": "2018 National House GE",
+            "tags": [],
+            "charts": [
+              "2018-national-house-race"
+            ],
+            "election_date": "2018-11-06",
+            "n_polls": 311,
+            "created_at": "2017-01-26T16:26:10.000Z",
+            "responses": [
+              {
+                "label": "Democrat",
+                "name": "Generic Dem",
+                "party": "Democrat",
+                "incumbent": false
+              },
+              {
+                "label": "Republican",
+                "name": "Generic Rep",
+                "party": "Republican",
+                "incumbent": false
+              },
+              {
+                "label": "Other",
+                "name": "Other",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 737,
+              "margin_of_error": 4,
+              "responses": [
+                {
+                  "text": "Democratic Candidate",
+                  "pollster_label": "Democrat",
+                  "value": 51
+                },
+                {
+                  "text": "Republican Candidate ",
+                  "pollster_label": "Republican",
+                  "value": 44
+                },
+                {
+                  "text": "Other (vol.)",
+                  "pollster_label": "Other",
+                  "value": 1
+                },
+                {
+                  "text": "Neither (vol.)",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                },
+                {
+                  "text": "Would not vote (vol.)",
+                  "pollster_label": "Undecided",
+                  "value": 0
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "cnn-28940",
+      "start_date": "2018-11-01",
+      "end_date": "2018-11-03",
+      "created_at": "2018-11-06T20:39:46.000Z",
+      "updated_at": "2018-11-06T16:39:46.000Z",
+      "survey_house": "CNN",
+      "mode": "Live Phone",
+      "url": "http://cdn.cnn.com/cnn/2018/images/11/04/rel10a.-.2018.pdf",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 1518,
+              "margin_of_error": 3.1,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 39
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 55
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 6
+                }
+              ]
+            },
+            {
+              "name": "Adults - Democrat",
+              "observations": null,
+              "margin_of_error": 5.2,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 4
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 91
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 5
+                }
+              ]
+            },
+            {
+              "name": "Adults - Republican",
+              "observations": null,
+              "margin_of_error": 5.8,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 89
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 9
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Adults - independent",
+              "observations": null,
+              "margin_of_error": 5.1,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 39
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 54
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 7
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "",
+          "question": {
+            "slug": "18-US-House",
+            "name": "2018 National House GE",
+            "tags": [],
+            "charts": [
+              "2018-national-house-race"
+            ],
+            "election_date": "2018-11-06",
+            "n_polls": 311,
+            "created_at": "2017-01-26T16:26:10.000Z",
+            "responses": [
+              {
+                "label": "Democrat",
+                "name": "Generic Dem",
+                "party": "Democrat",
+                "incumbent": false
+              },
+              {
+                "label": "Republican",
+                "name": "Generic Rep",
+                "party": "Republican",
+                "incumbent": false
+              },
+              {
+                "label": "Other",
+                "name": "Other",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1151,
+              "margin_of_error": 3.5,
+              "responses": [
+                {
+                  "text": "The Democratic Party's candidate",
+                  "pollster_label": "Democrat",
+                  "value": 55
+                },
+                {
+                  "text": "The Republican Party's candidate",
+                  "pollster_label": "Republican",
+                  "value": 42
+                },
+                {
+                  "text": "Neither/Other candidate (vol.)",
+                  "pollster_label": "Other",
+                  "value": 1
+                },
+                {
+                  "text": "Don't plan to vote (vol.)",
+                  "pollster_label": "Undecided",
+                  "value": 0
+                },
+                {
+                  "text": "No opinion",
+                  "pollster_label": "Undecided",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "nbc-wsj-28939",
+      "start_date": "2018-11-01",
+      "end_date": "2018-11-03",
+      "created_at": "2018-11-06T20:36:35.000Z",
+      "updated_at": "2018-11-06T16:36:35.000Z",
+      "survey_house": "NBC/WSJ",
+      "mode": "Live Phone",
+      "url": "http://media1.s-nbcnews.com/i/today/z_creative/181417NBCWSJNovemberPoll.pdf",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "In general, do you approve or disapprove of the job Donald Trump is doing as president?",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Registered Voters",
+              "observations": 1000,
+              "margin_of_error": 3.1,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 46
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 52
+                },
+                {
+                  "text": "Not sure",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "surveymonkey-28938",
+      "start_date": "2018-10-25",
+      "end_date": "2018-10-31",
+      "created_at": "2018-11-06T20:34:16.000Z",
+      "updated_at": "2018-11-06T16:34:16.000Z",
+      "survey_house": "SurveyMonkey",
+      "mode": "Internet",
+      "url": "https://drive.google.com/file/d/18-qHKEhPziAEO036jjH4sThlSi8hj8Dn/view",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 17797,
+              "margin_of_error": 1.5,
+              "responses": [
+                {
+                  "text": "Strongly Approve",
+                  "pollster_label": "Approve",
+                  "value": 27
+                },
+                {
+                  "text": "Somewhat Approve",
+                  "pollster_label": "Approve",
+                  "value": 16
+                },
+                {
+                  "text": "Somewhat Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 10
+                },
+                {
+                  "text": "Strongly Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 44
+                },
+                {
+                  "text": "No answer",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                }
+              ]
+            },
+            {
+              "name": "Adults - Democrat",
+              "observations": 8662,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Strongly Approve",
+                  "pollster_label": "Approve",
+                  "value": 2
+                },
+                {
+                  "text": "Somewhat Approve",
+                  "pollster_label": "Approve",
+                  "value": 4
+                },
+                {
+                  "text": "Somewhat Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 11
+                },
+                {
+                  "text": "Strongly Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 83
+                },
+                {
+                  "text": "No answer",
+                  "pollster_label": "Undecided",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Adults - Republican",
+              "observations": 6809,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Strongly Approve",
+                  "pollster_label": "Approve",
+                  "value": 64
+                },
+                {
+                  "text": "Somewhat Approve",
+                  "pollster_label": "Approve",
+                  "value": 27
+                },
+                {
+                  "text": "Somewhat Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 5
+                },
+                {
+                  "text": "Strongly Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 4
+                },
+                {
+                  "text": "No answer",
+                  "pollster_label": "Undecided",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "name": "Adults - independent",
+              "observations": 2003,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Strongly Approve",
+                  "pollster_label": "Approve",
+                  "value": 9
+                },
+                {
+                  "text": "Somewhat Approve",
+                  "pollster_label": "Approve",
+                  "value": 27
+                },
+                {
+                  "text": "Somewhat Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 22
+                },
+                {
+                  "text": "Strongly Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 41
+                },
+                {
+                  "text": "No answer",
+                  "pollster_label": "Undecided",
+                  "value": 2
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ipsos-reuters-28937",
+      "start_date": "2018-10-24",
+      "end_date": "2018-10-30",
+      "created_at": "2018-11-06T20:30:44.000Z",
+      "updated_at": "2018-11-06T16:30:44.000Z",
+      "survey_house": "Ipsos/Reuters",
+      "mode": "Internet",
+      "url": "https://www.ipsos.com/sites/default/files/ct/news/documents/2018-10/2018_reuters_tracking_-_core_political_10_31_2018.pdf",
+      "partisanship": "Nonpartisan",
+      "partisan_affiliation": "None",
+      "poll_questions": [
+        {
+          "text": "Thinking about the elections in 2018, if the election for U.S. Congress were held today, would you vote for the Democratic candidate or the Republican candidate in your district where you live?",
+          "question": {
+            "slug": "18-US-House",
+            "name": "2018 National House GE",
+            "tags": [],
+            "charts": [
+              "2018-national-house-race"
+            ],
+            "election_date": "2018-11-06",
+            "n_polls": 311,
+            "created_at": "2017-01-26T16:26:10.000Z",
+            "responses": [
+              {
+                "label": "Democrat",
+                "name": "Generic Dem",
+                "party": "Democrat",
+                "incumbent": false
+              },
+              {
+                "label": "Republican",
+                "name": "Generic Rep",
+                "party": "Republican",
+                "incumbent": false
+              },
+              {
+                "label": "Other",
+                "name": "Other",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Likely Voters",
+              "observations": 1383,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Democratic Candidate",
+                  "pollster_label": "Democrat",
+                  "value": 49
+                },
+                {
+                  "text": "Republican Candidate ",
+                  "pollster_label": "Republican",
+                  "value": 42
+                },
+                {
+                  "text": "Candidate from Another Party ",
+                  "pollster_label": "Other",
+                  "value": 3
+                },
+                {
+                  "text": "Will not/Do not plan to vote",
+                  "pollster_label": "Undecided",
+                  "value": 0
+                },
+                {
+                  "text": "Don't know/refused",
+                  "pollster_label": "Undecided",
+                  "value": 6
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Overall, do you approve or disapprove about the way Donald Trump is handling his job as President?",
+          "question": {
+            "slug": "00c -Pres-45-Trump - Job Approval - National",
+            "name": "Trump, Donald - USPres - Job Approval",
+            "tags": [],
+            "charts": [
+              "trump-job-approval"
+            ],
+            "election_date": null,
+            "n_polls": 1526,
+            "created_at": "2017-01-10T18:32:55.000Z",
+            "responses": [
+              {
+                "label": "Approve",
+                "name": "Approve",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Disapprove",
+                "name": "Disapprove",
+                "party": null,
+                "incumbent": false
+              },
+              {
+                "label": "Undecided",
+                "name": "Undecided",
+                "party": null,
+                "incumbent": false
+              }
+            ]
+          },
+          "sample_subpopulations": [
+            {
+              "name": "Adults",
+              "observations": 2574,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 41
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 53
+                },
+                {
+                  "text": "Not sure",
+                  "pollster_label": "Undecided",
+                  "value": 6
+                }
+              ]
+            },
+            {
+              "name": "Likely Voters - Democrat",
+              "observations": 636,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 10
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 90
+                },
+                {
+                  "text": "Not sure",
+                  "pollster_label": "Undecided",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "name": "Likely Voters - Republican",
+              "observations": 591,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 87
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 12
+                },
+                {
+                  "text": "Not sure",
+                  "pollster_label": "Undecided",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "name": "Likely Voters - independent",
+              "observations": 115,
+              "margin_of_error": null,
+              "responses": [
+                {
+                  "text": "Approve",
+                  "pollster_label": "Approve",
+                  "value": 32
+                },
+                {
+                  "text": "Disapprove",
+                  "pollster_label": "Disapprove",
+                  "value": 67
+                },
+                {
+                  "text": "Not sure",
+                  "pollster_label": "Undecided",
+                  "value": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

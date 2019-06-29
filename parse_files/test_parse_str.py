@@ -138,6 +138,11 @@ class ParsePoliticalLeanings(TestCase):
         expected_num_votes = 3779
         self.assertEqual(expected_num_votes, choice.votes)
 
+    def test_political_leanings_read_all_questions(self):
+        expected_number_of_questions = 2
+        number_of_questions = Question.objects.count()
+        self.assertEqual(expected_number_of_questions, number_of_questions)
+
 class ParsePollster(TestCase):
     """ Tests functions that extract and save data to database for Pollster
         using a small, local dataset. """
@@ -149,6 +154,11 @@ class ParsePollster(TestCase):
         local_pollster_url = "file://" + abs_url
 
         parse_pollster_data(local_pollster_url)
+
+    def test_pollster_read_all_questions(self):
+        expected_number_of_questions = 6
+        number_of_questions = Question.objects.count()
+        self.assertEqual(expected_number_of_questions, number_of_questions)
 
     def test_pollster_question_added_to_database(self):
         question = Question.objects.get(pk=1)
@@ -178,12 +188,27 @@ class ParsePollster(TestCase):
     def test_returned_next_cursor_correct(self):
         expected_next_cursor = "28962"
 
-        rel_url = "parse_files/pollster_sample.json"
-        abs_url = os.path.abspath(rel_url)
-        local_pollster_url = "file://" + abs_url
-        next_cursor = parse_pollster_data(local_pollster_url)
+        url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28987&sort=created_at.json"
+
+        next_cursor = parse_pollster_data(url)
 
         self.assertEqual(expected_next_cursor, next_cursor)
+
+class ParsePollsterAll(TestCase):
+    """ Tests functions that extract and save data to database for Pollster
+        using a 2 specific datasets. """
+
+    @classmethod
+    def setUpTestData(cls):
+        url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28987&sort=created_at.json"
+        parse_pollster_data(url)
+        url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28962&sort=created_at.json"
+        parse_pollster_data(url)
+
+    def test_pollster_read_all_questions_(self):
+        expected_number_of_questions = 54
+        number_of_questions = Question.objects.count()
+        self.assertEqual(expected_number_of_questions, number_of_questions)
 
 
 if __name__ == '__main__':

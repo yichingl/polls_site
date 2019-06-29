@@ -80,15 +80,15 @@ def parse_data(request):
 
     # start at most recent polls
     base_url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor={}&sort=created_at.json"
-    start_cursor = 28987
+    next_cursor = 28987
 
-    # load all 25 polls
-    next_cursor = parse_pollster_data(base_url.format(start_cursor))
-    # load the next 15 polls for a total of 40 polls
-    next_cursor = parse_pollster_data(base_url.format(start_cursor), 15)
+    # load all 40 polls
+    num_polls = 2
+    for num_poll in range(num_polls):
+        next_cursor = parse_pollster_data(base_url.format(next_cursor))
 
     context = {
             'data_str': "success",
         }
 
-    return render(request, 'read_url_data_view.html', context)
+    return HttpResponse("success")
