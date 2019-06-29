@@ -2,7 +2,11 @@ import urllib2
 import os
 import re
 import json
+
 import datetime
+from django.utils import timezone
+
+from polls.models import Question, Choice
 
 def parse_for_datetime(dstr):
     """ Given a pollster datetime str, return a datetime object. """
@@ -10,7 +14,6 @@ def parse_for_datetime(dstr):
 
 def read_url_data(url):
     """ Reads data at given url and returns response object. """
-
     try:
         response = urllib2.urlopen(url)
         return response
@@ -66,7 +69,6 @@ def parse_for_2(response):
 
     return out_dict
 
-
 def parse_for_pol_lean_groups(response, list_of_groups):
     """ Parses given response object and returns a dict containing
         entry# and group data as key-value pairs. """
@@ -81,25 +83,50 @@ def parse_for_pol_lean_groups(response, list_of_groups):
 
     return out_dict
 
-def parse_for_ny_data(response):
-    """ Parses given political_leanings response object and returns a
-        dict containing entry# and question/answers data as key-value pairs. """
+def _parse_ny_data(url):
+    """ Extracts data from input political_leanings url to
+        populate Question/Choice models in database. """
 
+    # read data from input url
+    response = read_url_data(url)
     data = json.loads(response.read())
 
-    list_of_groups = ["Very conservative","Conservative, (or)",
-        "Moderate","Liberal, (or)", "Very liberal", "NA", "N Size", "Time"]
+    # choices to parse for
+    choices = ["Very conservative","Conservative, (or)",
+        "Moderate","Liberal, (or)", "Very liberal"]
 
-    entries = []
     for entry in data:
-
+        # only save data for New York polls
         if entry["Geography"] == "New York":
-            entry_dict = {}
-            for group in list_of_groups:
-                entry_dict[group] = entry[group]
-            entries.append(entry_dict)
+            # add entry to database
+            question = Question.objects.get_or_create(
+                question_text = 'What was your political leaning in {}?'.format(entry["Time"]) ,
+                pub_date = timezone.now(),
+                slug = 'New_York' + str(entry["Time"])
+            )[0]
 
-    return entries
+            # convert N Size string to an int
+            num_voters = int(entry["N Size"].replace(",",""))
+            # track sum of decided voders, use to calculate proper # of undecided
+            num_decided_voters = 0
+
+            for choice in choices:
+                vote_percent = entry[choice]
+                num_votes = int(vote_percent*num_voters)
+                Choice.objects.get_or_create(
+                    question = question,
+                    choice_text = choice,
+                    votes = num_votes,
+                )
+                num_decided_voters += num_votes
+
+            # calculate number of undecided voters and add to database
+            Choice.objects.get_or_create(
+                question = question,
+                choice_text = "Undecided",
+                votes = num_voters - num_decided_voters,
+            )
+
 
 
 if __name__ == '__main__':
