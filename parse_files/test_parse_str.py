@@ -4,7 +4,7 @@ import os
 # from additional_test_files.parse_str import read_url_data
 from parse_str import read_url_data
 from parse_str import parse_for_states, parse_for_very_consv, parse_for_2
-from parse_str import parse_for_pol_lean_groups, parse_for_pollster_groups, parse_for_ny_data
+from parse_str import parse_for_pol_lean_groups, parse_for_ny_data
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -24,7 +24,6 @@ class ParseStrTestCase(unittest.TestCase):
         self.pollster_text = read_url_data(url_pollster).read().replace("\r","").replace("\n","")
 
         # Local pollster data
-        # rel_url = "parse_files/sample_text_pollster.json"
         rel_url = "parse_files/response_1561758504952.json"
         abs_url = os.path.abspath(rel_url)
         url_local_pollster = "file://" + abs_url
@@ -49,9 +48,6 @@ class ParseStrTestCase(unittest.TestCase):
         response = read_url_data(url_local)
         self.all_dict = parse_for_pol_lean_groups(response,
             ["Very conservative","Geography","N Size"])
-
-        response = read_url_data(url_local_pollster)
-        self.local_pollster_dict = parse_for_pollster_groups(response)
 
 
     def tearDown(self):

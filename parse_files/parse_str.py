@@ -99,40 +99,6 @@ def parse_for_ny_data(response):
 
     return entries
 
-def parse_for_pollster_groups(response):
-    """ Parses given response object and returns a dict containing
-        entry# and group data as key-value pairs. """
-
-    data = json.loads(response.read())
-
-    out_dict = {}
-
-    # parse poll data
-    out_dict["cursor"] = data["cursor"]
-    out_dict["next_cursor"] = data["next_cursor"]
-    out_dict["poll_entries"] = []
-
-    poll_entries = data["items"]
-
-    qnum = 1;
-    for poll_entry in poll_entries:
-
-        # extract questions
-        poll_questions = poll_entry["poll_questions"]
-
-        for question_info in poll_questions:
-            # print(question_info["text"])
-            question_entry_dict = {}
-            question_entry_dict["text"] = copy.copy(question_info["text"])
-            # question_entry_dict["text"] = "Do you approve or disapprove of the job Donald Trump is doing as president?"
-            question_entry_dict["sample_subpopulations"] = question_info["sample_subpopulations"]
-
-            out_dict["poll_entries"].append(question_entry_dict)
-            # if question_info["text"] != "":
-                # print(out_dict["poll_entries"][-1])
-    # print(out_dict["poll_entries"][0]["text"])
-    return out_dict
-
 
 if __name__ == '__main__':
 

@@ -9,11 +9,12 @@ from django.utils import timezone
 import json
 import os
 
-from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_ny_data, parse_for_pollster_groups
+from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_ny_data
 
 from models import Question, Choice
 
 def index(request):
+    """ Display latest 5 questions on the polls index page. """
 
     latest_question_list = Question.objects.order_by('-pub_date')[:5]
     context = {
@@ -22,6 +23,7 @@ def index(request):
     return render(request, 'index.html', context);
 
 def detail(request, question_pk):
+    """ Display a Question and all Choices to allow user to vote. """
 
     question = get_object_or_404(Question, pk=question_pk)
     context = {
@@ -30,6 +32,8 @@ def detail(request, question_pk):
     return render(request, 'detail.html', context);
 
 def results(request, question_pk):
+    """ Display results of a specific question. """
+
     question = get_object_or_404(Question, pk=question_pk)
     context = {
         'question': question,
@@ -37,6 +41,8 @@ def results(request, question_pk):
     return render(request, 'results.html', context)
 
 def vote(request, question_pk):
+    """ Performs voting action and redirects to results page. """
+
     question = get_object_or_404(Question, pk=question_pk)
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
@@ -53,6 +59,8 @@ def vote(request, question_pk):
         return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
 
 def parse_pol_lean_data(request):
+    """ Practice view to parse a list of groups from url. """
+
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     response = read_url_data(url)
     data_dict = parse_for_pol_lean_groups(response,
@@ -63,25 +71,33 @@ def parse_pol_lean_data(request):
     return render(request, 'read_url_data_view.html', context)
 
 def parse_ny_data(request):
+    """ Reads data from url, parses data, and converts data into Question
+        and Choices. """
+
+    # read data from url
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     response = read_url_data(url)
     entries = parse_for_ny_data(response)
+
+    # generate data for development use
     context = {
         'data_str': str(entries),
     }
 
+    # choices to parse for
     choices = ["Very conservative","Conservative, (or)",
         "Moderate","Liberal, (or)", "Very liberal"]
 
     # add entry to database
     for entry in entries:
-
         question = Question.objects.get_or_create(
             question_text = 'What was your political leaning in {}?'.format(entry["Time"]) ,
             pub_date = timezone.now()
         )[0]
 
+        # convert N Size string to an int
         num_voters = int(entry["N Size"].replace(",",""))
+        # track sum of decided voders, use to calculate proper # of undecided
         num_decided_voters = 0
 
         for choice in choices:
@@ -93,15 +109,21 @@ def parse_ny_data(request):
                 votes = num_votes,
             )
             num_decided_voters += num_votes
+
+        # calculate number of undecided voters and add to database
         Choice.objects.get_or_create(
             question = question,
             choice_text = "Undecided",
             votes = num_voters - num_decided_voters,
         )
+
     return render(request, 'read_url_data_view.html', context)
 
 
 def parse_pollster_data(request):
+    """ Reads data from url, parses data, and converts data into Question
+        and Choices. """
+
     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
 
     rel_url = "parse_files/response_1561758504952.json"
@@ -115,7 +137,7 @@ def parse_pollster_data(request):
         'data_str': str(data),
     }
 
-    poll_entries = data["items"] #hERE
+    poll_entries = data["items"]
 
     for poll_entry in poll_entries:
 
