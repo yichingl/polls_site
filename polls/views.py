@@ -92,7 +92,8 @@ def parse_ny_data(request):
     for entry in entries:
         question = Question.objects.get_or_create(
             question_text = 'What was your political leaning in {}?'.format(entry["Time"]) ,
-            pub_date = timezone.now()
+            pub_date = timezone.now(),
+            slug = 'New_York' + str(entry["Time"])
         )[0]
 
         # convert N Size string to an int
@@ -141,13 +142,31 @@ def parse_pollster_data(request):
 
     for poll_entry in poll_entries:
 
+        # get slug
+        slug = poll_entry["slug"]
+
         # extract questions
         poll_questions = poll_entry["poll_questions"]
 
+        # for each question, save the question and results
         for question_info in poll_questions:
             question = Question.objects.get_or_create(
                 question_text = question_info["text"],
-                pub_date = parse_for_datetime(question_info["question"]["created_at"])
+                pub_date = parse_for_datetime(question_info["question"]["created_at"]),
+                slug = slug,
             )[0]
+
+            poll_result = question_info["sample_subpopulations"][0]
+
+            num_voters = poll_result["observations"]
+            choices_list = poll_result["responses"]
+
+            for choice in choices_list:
+                Choice.objects.get_or_create(
+                    question = question,
+                    choice_text = choice["text"],
+                    votes = choice["value"],
+                )
+
 
     return render(request, 'read_url_data_view.html', context)

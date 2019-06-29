@@ -14,6 +14,9 @@ from django.utils import timezone
 class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
+    
+    # additional field to track repeated questions from different sources
+    slug = models.SlugField()
 
     def __str__(self):
         return self.question_text

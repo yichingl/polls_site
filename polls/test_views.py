@@ -209,3 +209,15 @@ class ParsePollsterDataViewTest(TestCase):
         question = Question.objects.get(pk=1)
         expected_datetime = pytz.UTC.localize(datetime.datetime(2017, 1, 10, 23, 32, 55))
         self.assertEqual(expected_datetime, question.pub_date)
+
+    def test_choice_added_to_database(self):
+        response = self.client.get(reverse('polls:parse_pollster_data'))
+        question = Question.objects.get(pk=1)
+        choice = Choice.objects.get(
+            question = question,
+            question__slug = "grinnell-selzer-28986",
+            choice_text = "Disapprove"
+            )
+
+        expected_num_votes = 45
+        self.assertEqual(expected_num_votes, choice.votes)
