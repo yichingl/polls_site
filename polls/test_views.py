@@ -172,9 +172,9 @@ class ParseDataViewTest(TestCase):
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('polls:load_polls'))
         self.assertEqual(response.status_code, 200)
-
-    def test_pollster_read_all_questions_(self):
-        response = self.client.get(reverse('polls:load_polls'))
-        expected_number_of_questions = 63
-        number_of_questions = Question.objects.count()
-        self.assertEqual(expected_number_of_questions, number_of_questions)
+    #
+    # def test_pollster_read_all_questions_(self):
+    #     response = self.client.get(reverse('polls:load_polls'))
+    #     expected_number_of_questions = 63
+    #     number_of_questions = Question.objects.count()
+    #     self.assertEqual(expected_number_of_questions, number_of_questions)

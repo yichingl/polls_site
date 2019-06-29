@@ -83,7 +83,7 @@ def parse_data(request):
     next_cursor = 28987
 
     # load all 40 polls
-    num_polls = 2
+    num_polls = 40
     for num_poll in range(num_polls):
         next_cursor = parse_pollster_data(base_url.format(next_cursor))
 
