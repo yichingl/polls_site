@@ -6,6 +6,8 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from urllib2 import urlopen
 from django.utils import timezone
+import json
+import os
 
 from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_ny_data, parse_for_pollster_groups
 
@@ -68,7 +70,6 @@ def parse_ny_data(request):
         'data_str': str(entries),
     }
 
-
     choices = ["Very conservative","Conservative, (or)",
         "Moderate","Liberal, (or)", "Very liberal"]
 
@@ -102,9 +103,29 @@ def parse_ny_data(request):
 
 def parse_pollster_data(request):
     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
+
+    rel_url = "parse_files/response_1561758504952.json"
+    abs_url = os.path.abspath(rel_url)
+    url = "file://" + abs_url
+
     response = read_url_data(url)
-    data_dict = parse_for_pollster_groups(response)
+
+    data = json.loads(response.read())
     context = {
-        'data_str': str(data_dict),
+        'data_str': str(data),
     }
+
+    poll_entries = data["items"] #hERE
+
+    for poll_entry in poll_entries:
+
+        # extract questions
+        poll_questions = poll_entry["poll_questions"]
+
+        for question_info in poll_questions:
+            question = Question.objects.get_or_create(
+                question_text = question_info["text"] ,
+                pub_date = timezone.now()
+            )[0]
+
     return render(request, 'read_url_data_view.html', context)

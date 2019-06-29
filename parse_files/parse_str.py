@@ -3,6 +3,8 @@ import os
 import re
 import json
 
+import copy
+
 
 def read_url_data(url):
     """ Reads data at given url and returns response object. """
@@ -108,23 +110,27 @@ def parse_for_pollster_groups(response):
     # parse poll data
     out_dict["cursor"] = data["cursor"]
     out_dict["next_cursor"] = data["next_cursor"]
+    out_dict["poll_entries"] = []
 
     poll_entries = data["items"]
 
     qnum = 1;
     for poll_entry in poll_entries:
 
-
         # extract questions
-        question_groups = poll_entry["poll_questions"]
+        poll_questions = poll_entry["poll_questions"]
 
-        for question_info in question_groups:
+        for question_info in poll_questions:
+            # print(question_info["text"])
             question_entry_dict = {}
-            question_entry_dict["poll_question_text"] = question_info["text"]
-            question_entry_dict["poll_responses"] = question_info["sample_subpopulations"]
+            question_entry_dict["text"] = copy.copy(question_info["text"])
+            # question_entry_dict["text"] = "Do you approve or disapprove of the job Donald Trump is doing as president?"
+            question_entry_dict["sample_subpopulations"] = question_info["sample_subpopulations"]
 
-            out_dict[qnum] = question_entry_dict
-            qnum += 1
+            out_dict["poll_entries"].append(question_entry_dict)
+            # if question_info["text"] != "":
+                # print(out_dict["poll_entries"][-1])
+    # print(out_dict["poll_entries"][0]["text"])
     return out_dict
 
 

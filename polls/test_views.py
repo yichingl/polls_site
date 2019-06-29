@@ -196,3 +196,9 @@ class ParsePollsterDataViewTest(TestCase):
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('polls:parse_pollster_data'))
         self.assertEqual(response.status_code, 200)
+
+    def test_question_added_to_database(self):
+        response = self.client.get(reverse('polls:parse_pollster_data'))
+        question = Question.objects.get(pk=1)
+        expected_question_text = "Do you approve or disapprove of the job Donald Trump is doing as president?"
+        self.assertEqual(expected_question_text, question.question_text)
