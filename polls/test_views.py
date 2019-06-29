@@ -156,68 +156,15 @@ class QuestionVoteViewTest(TestCase):
         returned_error = response.context['error_message']
         self.assertEqual("You didn't select a choice.", returned_error)
 
-class ParsePolLeanDataViewTest(TestCase):
+class ParseDataViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
         pass;
 
     def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/polls/political_leanings/')
+        response = self.client.get('/polls/load_polls/')
         self.assertEqual(response.status_code, 200)
 
     def test_view_url_accessible_by_name(self):
-        response = self.client.get(reverse('polls:parse_pol_lean_data'))
+        response = self.client.get(reverse('polls:load_polls'))
         self.assertEqual(response.status_code, 200)
-
-    def test_question_added_to_database(self):
-        response = self.client.get(reverse('polls:parse_pol_lean_data'))
-        question = Question.objects.get(pk=4)
-        expected_question_text = 'What was your political leaning in 2013?'
-        self.assertEqual(expected_question_text, question.question_text)
-
-    def test_choice_added_to_database(self):
-        response = self.client.get(reverse('polls:parse_pol_lean_data'))
-        question = Question.objects.get(pk=4)
-        choice = Choice.objects.get(
-            question = question,
-            choice_text = "Moderate")
-        expected_num_votes = 3251
-        self.assertEqual(expected_num_votes, choice.votes)
-
-
-class ParsePollsterDataViewTest(TestCase):
-    @classmethod
-    def setUpTestData(cls):
-        pass;
-
-    def test_view_url_exists_at_desired_location(self):
-        response = self.client.get('/polls/pollster/')
-        self.assertEqual(response.status_code, 200)
-
-    def test_view_url_accessible_by_name(self):
-        response = self.client.get(reverse('polls:parse_pollster_data'))
-        self.assertEqual(response.status_code, 200)
-
-    def test_question_added_to_database(self):
-        response = self.client.get(reverse('polls:parse_pollster_data'))
-        question = Question.objects.get(pk=1)
-        expected_question_text = "Do you approve or disapprove of the job Donald Trump is doing as president?"
-        self.assertEqual(expected_question_text, question.question_text)
-
-    def test_date_of_question_added_to_database(self):
-        response = self.client.get(reverse('polls:parse_pollster_data'))
-        question = Question.objects.get(pk=1)
-        expected_datetime = pytz.UTC.localize(datetime.datetime(2017, 1, 10, 23, 32, 55))
-        self.assertEqual(expected_datetime, question.pub_date)
-
-    def test_choice_added_to_database(self):
-        response = self.client.get(reverse('polls:parse_pollster_data'))
-        question = Question.objects.get(pk=1)
-        choice = Choice.objects.get(
-            question = question,
-            question__slug = "grinnell-selzer-28986",
-            choice_text = "Disapprove"
-            )
-
-        expected_num_votes = 450
-        self.assertEqual(expected_num_votes, choice.votes)

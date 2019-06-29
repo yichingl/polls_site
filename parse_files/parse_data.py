@@ -83,7 +83,7 @@ def parse_for_pol_lean_groups(response, list_of_groups):
 
     return out_dict
 
-def _parse_ny_data(url):
+def parse_ny_data(url):
     """ Extracts data from input political_leanings url to
         populate Question/Choice models in database. """
 
@@ -127,6 +127,43 @@ def _parse_ny_data(url):
                 votes = num_voters - num_decided_voters,
             )
 
+def parse_pollster_data(url, num_polls_to_load=25):
+    """ Extracts data from input pollster url to populate Question/Choice models
+        in database. Should return the cursor for the next url."""
+
+    # read data from input url
+    response = read_url_data(url)
+    data = json.loads(response.read())
+
+    poll_entries = data["items"]
+
+    for poll_entry in poll_entries:
+
+        # get slug
+        slug = poll_entry["slug"]
+
+        # extract questions
+        poll_questions = poll_entry["poll_questions"]
+
+        # for each question, save the question and results
+        for question_info in poll_questions:
+            question = Question.objects.get_or_create(
+                question_text = question_info["text"],
+                pub_date = parse_for_datetime(question_info["question"]["created_at"]),
+                slug = slug,
+            )[0]
+
+            poll_result = question_info["sample_subpopulations"][0]
+
+            num_voters = poll_result["observations"]
+            choices_list = poll_result["responses"]
+
+            for choice in choices_list:
+                Choice.objects.get_or_create(
+                    question = question,
+                    choice_text = choice["text"],
+                    votes = int(choice["value"]/100.0*num_voters),
+                )
 
 
 if __name__ == '__main__':
