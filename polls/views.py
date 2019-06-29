@@ -6,7 +6,7 @@ from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from urllib2 import urlopen
 
-from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups
+from parse_files.parse_str import read_url_data, parse_for_pol_lean_groups, parse_for_pollster_groups
 
 from models import Question, Choice
 
@@ -62,7 +62,8 @@ def parse_pol_lean_data(request):
 def parse_pollster_data(request):
     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
     response = read_url_data(url)
+    data_dict = parse_for_pollster_groups(response)
     context = {
-        'data_str': response.read().replace("\r","").replace("\n",""),
+        'data_str': str(data_dict),
     }
     return render(request, 'read_url_data_view.html', context)

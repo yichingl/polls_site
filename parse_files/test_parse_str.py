@@ -2,7 +2,9 @@
 import unittest
 import os
 # from additional_test_files.parse_str import read_url_data
-from parse_str import read_url_data, parse_for_states, parse_for_very_consv, parse_for_2, parse_for_pol_lean_groups
+from parse_str import read_url_data
+from parse_str import parse_for_states, parse_for_very_consv, parse_for_2
+from parse_str import parse_for_pol_lean_groups, parse_for_pollster_groups
 
 
 class ParseStrTestCase(unittest.TestCase):
@@ -18,8 +20,14 @@ class ParseStrTestCase(unittest.TestCase):
         url_local = "file://" + abs_url
 
         # Pollster data
-        url_pollster = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at"
+        url_pollster = "https://elections.huffingtonpost.com/pollster/api/v2/charts.json"
         self.pollster_text = read_url_data(url_pollster).read().replace("\r","").replace("\n","")
+
+        # Local pollster data
+        # rel_url = "parse_files/sample_text_pollster.json"
+        rel_url = "parse_files/response_1561758504952.json"
+        abs_url = os.path.abspath(rel_url)
+        url_local_pollster = "file://" + abs_url
 
         #  For checking text content
         response = read_url_data(url_local)
@@ -39,6 +47,9 @@ class ParseStrTestCase(unittest.TestCase):
         self.all_dict = parse_for_pol_lean_groups(response,
             ["Very conservative","Geography","N Size"])
 
+        response = read_url_data(url_local_pollster)
+        self.local_pollster_dict = parse_for_pollster_groups(response)
+
 
     def tearDown(self):
         pass;
@@ -54,7 +65,7 @@ class ParseStrTestCase(unittest.TestCase):
         self.assertEqual(expected_text_excerpt, read_text_excerpt)
 
     def test_pollster_contents_read_correctly(self):
-        expected_text_excerpt = '{"count":28464,'
+        expected_text_excerpt = '{"count":853,"cursor":"901"'
         read_text_excerpt = self.pollster_text[0:len(expected_text_excerpt)]
         self.assertEqual(expected_text_excerpt, read_text_excerpt)
 
@@ -82,7 +93,7 @@ class ParseStrTestCase(unittest.TestCase):
             4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania'}}
         self.assertEqual(expected_out_dict, self.out_dict)
 
-    def test_parse_for_given_groups(self):
+    def test_parse_for_pol_lean_groups(self):
         expected_out_dict = {
             0:{"Very conservative":0.06371055471, 'Geography': 'California',
                 "N Size": "17,506"},
@@ -95,8 +106,6 @@ class ParseStrTestCase(unittest.TestCase):
             4:{"Very conservative":0.08044835955, 'Geography': 'Pennsylvania',
                 "N Size": "8,377"}}
         self.assertEqual(expected_out_dict, self.all_dict)
-
-
 
 if __name__ == '__main__':
     unittest.main()

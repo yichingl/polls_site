@@ -77,6 +77,35 @@ def parse_for_pol_lean_groups(response, list_of_groups):
 
     return out_dict
 
+def parse_for_pollster_groups(response):
+    """ Parses given response object and returns a dict containing
+        entry# and group data as key-value pairs. """
+
+    data = json.loads(response.read())
+
+    out_dict = {}
+
+    # parse poll data
+    out_dict["cursor"] = data["cursor"]
+    out_dict["next_cursor"] = data["next_cursor"]
+
+    poll_entries = data["items"]
+
+    qnum = 1;
+    for poll_entry in poll_entries:
+
+
+        # extract questions
+        question_groups = poll_entry["poll_questions"]
+
+        for question_info in question_groups:
+            question_entry_dict = {}
+            question_entry_dict["poll_question_text"] = question_info["text"]
+            question_entry_dict["poll_responses"] = question_info["sample_subpopulations"]
+
+            out_dict[qnum] = question_entry_dict
+            qnum += 1
+    return out_dict
 
 
 if __name__ == '__main__':
