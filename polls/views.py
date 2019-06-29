@@ -58,3 +58,11 @@ def parse_url_data(request):
         'data_str': str(data_dict),
     }
     return render(request, 'read_url_data_view.html', context)
+
+def parse_pollster_url_data(request):
+    url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
+    response = read_url_data(url)
+    context = {
+        'data_str': response.read().replace("\r","").replace("\n",""),
+    }
+    return render(request, 'read_url_data_view.html', context)

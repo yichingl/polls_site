@@ -17,6 +17,10 @@ class ParseStrTestCase(unittest.TestCase):
         abs_url = os.path.abspath(rel_url)
         url_local = "file://" + abs_url
 
+        # Pollster data
+        url_pollster = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at"
+        self.pollster_text = read_url_data(url_pollster).read().replace("\r","").replace("\n","")
+
         #  For checking text content
         response = read_url_data(url_local)
         self.local_text = response.read().replace("\r","").replace("\n","")
@@ -47,6 +51,11 @@ class ParseStrTestCase(unittest.TestCase):
     def test_online_contents_read_correctly(self):
         expected_text_excerpt = '[ {   "Geography": '
         read_text_excerpt = self.online_text[0:len(expected_text_excerpt)]
+        self.assertEqual(expected_text_excerpt, read_text_excerpt)
+
+    def test_pollster_contents_read_correctly(self):
+        expected_text_excerpt = '{"count":28464,'
+        read_text_excerpt = self.pollster_text[0:len(expected_text_excerpt)]
         self.assertEqual(expected_text_excerpt, read_text_excerpt)
 
     def test_parse_for_states(self):

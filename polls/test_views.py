@@ -167,3 +167,16 @@ class ParseUrlDataViewTest(TestCase):
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('polls:parse_url_data'))
         self.assertEqual(response.status_code, 200)
+
+class ParsePollsterUrlDataViewTest(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        pass;
+
+    def test_view_url_exists_at_desired_location(self):
+        response = self.client.get('/polls/parse_pollster_url_data/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_url_accessible_by_name(self):
+        response = self.client.get(reverse('polls:parse_pollster_url_data'))
+        self.assertEqual(response.status_code, 200)

@@ -12,7 +12,9 @@ urlpatterns = [
     url(r'^(?P<question_pk>[0-9]+)/results/$', views.results, name='results'),
     # url for: /polls/<int:pk>/vote/
     url(r'^(?P<question_pk>[0-9]+)/vote/$', views.vote, name='vote'),
-    # url for: /polls/read_url_data/
+    # url for: /polls/parse_url_data/
     url(r'^parse_url_data/$', views.parse_url_data, name='parse_url_data'),
+    # url for: /polls/parse_pollster_url_data/
+    url(r'^parse_pollster_url_data/$', views.parse_pollster_url_data, name='parse_pollster_url_data'),
 
 ]
