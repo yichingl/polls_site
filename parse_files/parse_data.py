@@ -137,20 +137,24 @@ def parse_pollster_data(url, num_polls_to_load=25):
 
     poll_entries = data["items"]
 
-    for poll_entry in poll_entries:
+    next_cursor = data["next_cursor"]
 
-        # get slug
-        slug = poll_entry["slug"]
+    # only load specified amount of polls
+    for poll_entry in poll_entries[:num_polls_to_load]:
 
         # extract questions
         poll_questions = poll_entry["poll_questions"]
+
+        # poll's slug
+        poll_slug = poll_entry["slug"]
+
 
         # for each question, save the question and results
         for question_info in poll_questions:
             question = Question.objects.get_or_create(
                 question_text = question_info["text"],
                 pub_date = parse_for_datetime(question_info["question"]["created_at"]),
-                slug = slug,
+                slug = "{}: {}".format(poll_slug,question_info["question"]["slug"]),
             )[0]
 
             poll_result = question_info["sample_subpopulations"][0]
@@ -164,6 +168,7 @@ def parse_pollster_data(url, num_polls_to_load=25):
                     choice_text = choice["text"],
                     votes = int(choice["value"]/100.0*num_voters),
                 )
+    return next_cursor
 
 
 if __name__ == '__main__':

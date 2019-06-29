@@ -123,7 +123,7 @@ class ParsePoliticalLeanings(TestCase):
         rel_url = "parse_files/political_leanings_sample.json"
         abs_url = os.path.abspath(rel_url)
         local_political_leanings_url = "file://" + abs_url
-        parse_ny_data(local_political_leanings_url)
+        next_cursor = parse_ny_data(local_political_leanings_url)
 
     def test_political_leanings_question_added_to_database(self):
         question = Question.objects.get(pk=1)
@@ -155,6 +155,11 @@ class ParsePollster(TestCase):
         expected_question_text = "Do you approve or disapprove of the job Donald Trump is doing as president?"
         self.assertEqual(expected_question_text, question.question_text)
 
+    def test_pollster_question_slug_correct(self):
+        question = Question.objects.get(pk=1)
+        expected_question_slug = "grinnell-selzer-28986: 00c -Pres-45-Trump - Job Approval - National"
+        self.assertEqual(expected_question_slug, question.slug)
+
     def test_pollster_date_of_question_added_to_database(self):
         question = Question.objects.get(pk=1)
         expected_datetime = pytz.UTC.localize(datetime.datetime(2017, 1, 10, 23, 32, 55))
@@ -164,11 +169,21 @@ class ParsePollster(TestCase):
         question = Question.objects.get(pk=1)
         choice = Choice.objects.get(
             question = question,
-            question__slug = "grinnell-selzer-28986",
+            question__slug = "grinnell-selzer-28986: 00c -Pres-45-Trump - Job Approval - National",
             choice_text = "Disapprove"
             )
         expected_votes = 450
         self.assertEqual(expected_votes, choice.votes)
+
+    def test_returned_next_cursor_correct(self):
+        expected_next_cursor = "28962"
+
+        rel_url = "parse_files/pollster_sample.json"
+        abs_url = os.path.abspath(rel_url)
+        local_pollster_url = "file://" + abs_url
+        next_cursor = parse_pollster_data(local_pollster_url)
+
+        self.assertEqual(expected_next_cursor, next_cursor)
 
 
 if __name__ == '__main__':

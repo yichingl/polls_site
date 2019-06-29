@@ -18,7 +18,8 @@ class QuestionsIndexViewTest(TestCase):
         for q_pk in range(1,num_questions+1):
             Question.objects.create(
                 question_text = 'Q?' + str(q_pk),
-                pub_date = timezone.now()
+                pub_date = timezone.now(),
+                slug = "s"+str(q_pk)
             )
 
     def test_view_url_exists_at_desired_location(self):
@@ -45,7 +46,8 @@ class QuestionDetailViewTest(TestCase):
         # create Question data
         Question.objects.create(
             question_text = 'this is the question?',
-            pub_date = timezone.now()
+            pub_date = timezone.now(),
+            slug = "test-slug"
         )
 
     def test_view_url_exists_at_desired_location(self):
@@ -75,7 +77,8 @@ class QuestionResultsViewTest(TestCase):
         # create Question data
         Question.objects.create(
             question_text = 'this is the question?',
-            pub_date = timezone.now()
+            pub_date = timezone.now(),
+            slug = "test-slug"
         )
 
     def test_view_url_exists_at_desired_location(self):
@@ -94,7 +97,8 @@ class QuestionVoteViewTest(TestCase):
         # create Question data
         Question.objects.create(
             question_text = 'this is the question?',
-            pub_date = timezone.now()
+            pub_date = timezone.now(),
+            slug = "test-slug"
         )
 
         # create Choice data

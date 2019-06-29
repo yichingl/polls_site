@@ -78,77 +78,17 @@ def parse_data(request):
     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
     parse_ny_data(url)
 
-    url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
-    parse_pollster_data(url)
+    # start at most recent polls
+    base_url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor={}&sort=created_at.json"
+    start_cursor = 28987
 
+    # load all 25 polls
+    next_cursor = parse_pollster_data(base_url.format(start_cursor))
+    # load the next 15 polls for a total of 40 polls
+    next_cursor = parse_pollster_data(base_url.format(start_cursor), 15)
 
     context = {
             'data_str': "success",
         }
 
     return render(request, 'read_url_data_view.html', context)
-
-# def parse_ny_data(request):
-#     """ Reads data from url, parses data, and converts data into Question
-#         and Choices. """
-#
-#     # read political leanings data  from url
-#     url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
-#     parse_ny_data(url)
-#
-#     # read pollster data from url
-#     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
-#     parse_pollster_data(url)
-#
-#     context = { 'data_str': "success"}
-#
-#     return render(request, 'read_url_data_view.html', context)
-#
-#
-# def parse_pollster_data(request):
-#     """ Reads data from url, parses data, and converts data into Question
-#         and Choices. """
-#
-#     url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=16337&sort=created_at.json"
-#
-#     rel_url = "parse_files/response_1561758504952.json"
-#     abs_url = os.path.abspath(rel_url)
-#     url = "file://" + abs_url
-#     parse_pollster_data(url)
-#
-#     context = {
-#         'data_str': "success",
-#     }
-#
-#     # poll_entries = data["items"]
-#     #
-#     # for poll_entry in poll_entries:
-#     #
-#     #     # get slug
-#     #     slug = poll_entry["slug"]
-#     #
-#     #     # extract questions
-#     #     poll_questions = poll_entry["poll_questions"]
-#     #
-#     #     # for each question, save the question and results
-#     #     for question_info in poll_questions:
-#     #         question = Question.objects.get_or_create(
-#     #             question_text = question_info["text"],
-#     #             pub_date = parse_for_datetime(question_info["question"]["created_at"]),
-#     #             slug = slug,
-#     #         )[0]
-#     #
-#     #         poll_result = question_info["sample_subpopulations"][0]
-#     #
-#     #         num_voters = poll_result["observations"]
-#     #         choices_list = poll_result["responses"]
-#     #
-#     #         for choice in choices_list:
-#     #             Choice.objects.get_or_create(
-#     #                 question = question,
-#     #                 choice_text = choice["text"],
-#     #                 votes = int(choice["value"]/100.0*num_voters),
-#     #             )
-#
-#
-#     return render(request, 'read_url_data_view.html', context)

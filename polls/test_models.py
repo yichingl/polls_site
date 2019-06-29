@@ -14,12 +14,14 @@ class QuestionModelTest(TestCase):
         # create Question data
         Question.objects.create(
             question_text = 'this is the question?',
-            pub_date = date(2018, 7, 20)
+            pub_date = date(2018, 7, 20),
+            slug = "old-slug"
         )
 
         Question.objects.create(
             question_text = 'this is another question?',
-            pub_date = timezone.now()
+            pub_date = timezone.now(),
+            slug = "new-slug"
         )
 
     def test_question_label(self):
@@ -47,7 +49,7 @@ class QuestionModelTest(TestCase):
 
     def test_question_str_name(self):
         question = Question.objects.get(pk=1)
-        expected_object_name = question.question_text
+        expected_object_name = question.question_text + "({})".format(question.slug)
         self.assertEquals(expected_object_name, str(question))
 
 class ChoiceModelTest(TestCase):
@@ -57,7 +59,8 @@ class ChoiceModelTest(TestCase):
         # create a dummy question
         Question.objects.create(
             question_text = 'this is the question?',
-            pub_date = date(2018, 7, 20)
+            pub_date = date(2018, 7, 20),
+            slug = "q-slug"
         )
 
         # create Choice data
