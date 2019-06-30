@@ -114,19 +114,21 @@ def parse_ny_data(url):
             for choice in choices:
                 vote_percent = entry[choice]
                 num_votes = int(vote_percent*num_voters)
-                Choice.objects.get_or_create(
+                choice = Choice.objects.get_or_create(
                     question = question,
-                    choice_text = choice,
-                    votes = num_votes,
-                )
+                    choice_text = choice
+                )[0]
+                choice.votes = num_votes
+                choice.save()
                 num_decided_voters += num_votes
 
             # calculate number of undecided voters and add to database
-            Choice.objects.get_or_create(
+            choice = Choice.objects.get_or_create(
                 question = question,
-                choice_text = "Undecided",
-                votes = num_voters - num_decided_voters,
-            )
+                choice_text = "Undecided"
+            )[0]
+            choice.votes = num_voters - num_decided_voters
+            choice.save()
 
 def parse_pollster_data(url):
     """ Extracts data from input pollster url to populate Question/Choice models
@@ -164,12 +166,14 @@ def parse_pollster_data(url):
             num_voters = poll_result["observations"]
             choices_list = poll_result["responses"]
 
-            for choice in choices_list:
-                Choice.objects.get_or_create(
+            for choice_dict in choices_list:
+                choice = Choice.objects.get_or_create(
                     question = question,
-                    choice_text = choice["text"],
-                    votes = int(choice["value"]/100.0*num_voters),
-                )
+                    choice_text = choice_dict["text"],
+                )[0]
+                num_votes = int(choice_dict["value"]/100.0*num_voters)
+                choice.votes = num_votes
+                choice.save()
     return next_cursor
 
 

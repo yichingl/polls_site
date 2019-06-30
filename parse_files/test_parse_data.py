@@ -194,9 +194,9 @@ class ParsePollster(TestCase):
 
         self.assertEqual(expected_next_cursor, next_cursor)
 
-class ParsePollsterAll(TestCase):
+class ParseAll(TestCase):
     """ Tests functions that extract and save data to database for Pollster
-        using a 2 specific datasets. """
+        using a 2 specific datasets and Political Leaning dataset. """
 
     @classmethod
     def setUpTestData(cls):
@@ -205,10 +205,42 @@ class ParsePollsterAll(TestCase):
         url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28962&sort=created_at.json"
         parse_pollster_data(url)
 
+        url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
+        parse_ny_data(url)
+
     def test_pollster_read_all_questions_(self):
-        expected_number_of_questions = 54
+        expected_number_of_questions = 63
         number_of_questions = Question.objects.count()
         self.assertEqual(expected_number_of_questions, number_of_questions)
+
+    def test_pollster_no_extra_questions_repeated_load(self):
+        num_q_before_load = Question.objects.count()
+
+        url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28962&sort=created_at.json"
+        parse_pollster_data(url)
+        url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
+        parse_ny_data(url)
+
+        num_q_after_load = Question.objects.count()
+        self.assertEqual(num_q_before_load, num_q_after_load)
+
+    def test_pollster_no_extra_choices_change_votes_repeated_load(self):
+        num_c_before_load = Choice.objects.count()
+
+        choice = Choice.objects.get(pk=1)
+        choice.votes = 5
+
+        choice = Choice.objects.get(pk=10)
+        choice.votes = 0
+
+        url = "https://elections.huffingtonpost.com/pollster/api/v2/polls?cursor=28962&sort=created_at.json"
+        parse_pollster_data(url)
+        url = 'https://bbotllc.github.io/candidate-interviews/political_leanings.json'
+        parse_ny_data(url)
+
+        num_c_after_load = Choice.objects.count()
+        self.assertEqual(num_c_before_load, num_c_after_load)
+
 
 
 if __name__ == '__main__':
