@@ -34,6 +34,16 @@ def detail(request, question_pk):
     return render(request, 'detail_single.html', context);
 
 def questions_list(request):
+    """ Display all Questions with text and all Choices to allow user
+        to vote. """
+
+    questions = Question.objects.exclude(question_text="")
+
+    return render(request, 'detail.html', {
+        'questions': questions,
+    })
+
+def questions_list_include_empty(request):
     """ Display all Questions and all Choices to allow user to vote. """
 
     questions = Question.objects.all()

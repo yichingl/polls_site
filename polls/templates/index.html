@@ -18,7 +18,7 @@
   <ul>
     <li><a href="{% url 'polls:index' %}">Index</a></li>
     <li><a href="{% url 'polls:questions_list' %}">List of All Questions</a></li>
-    <li><a href="#">List of All Questions With Text</a></li>
+    <li><a href="{% url 'polls:questions_list_include_empty' %}">List of All Questions (including ones without text)</a></li>
     <li><a href="{% url 'polls:load_polls' %}">Populate Database With JSON Data</a></li>
   </ul>
 
