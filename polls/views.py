@@ -17,7 +17,7 @@ from models import Question, Choice
 def index(request):
     """ Display latest 5 questions on the polls index page. """
 
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
+    latest_question_list = Question.objects.exclude(question_text="").order_by('-pub_date')[:5]
     context = {
         'latest_question_list': latest_question_list,
     }
