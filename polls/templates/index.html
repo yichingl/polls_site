@@ -1,4 +1,5 @@
 
+<h1>Latest 5 Questions</h1>
 {% if latest_question_list %}
   <ul>
     {% for question in latest_question_list %}
@@ -9,3 +10,16 @@
 {% else %}
   <p>No polls are available.</p>
 {% endif %}
+
+<br>
+
+<div>
+  <h2>Links</h2>
+  <ul>
+    <li><a href="{% url 'polls:index' %}">Index</a></li>
+    <li><a href="{% url 'polls:questions_list' %}">List of All Questions</a></li>
+    <li><a href="#">List of All Questions With Text</a></li>
+    <li><a href="{% url 'polls:load_polls' %}">Populate Database With JSON Data</a></li>
+  </ul>
+
+</div>

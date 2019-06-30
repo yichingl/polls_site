@@ -26,11 +26,21 @@ def index(request):
 def detail(request, question_pk):
     """ Display a Question and all Choices to allow user to vote. """
 
+    # question = get_object_or_404(Question, pk=question_pk)
     question = get_object_or_404(Question, pk=question_pk)
     context = {
         'question': question,
     }
-    return render(request, 'detail.html', context);
+    return render(request, 'detail_single.html', context);
+
+def questions_list(request):
+    """ Display all Questions and all Choices to allow user to vote. """
+
+    questions = Question.objects.all()
+
+    return render(request, 'detail.html', {
+        'questions': questions,
+    })
 
 def results(request, question_pk):
     """ Display results of a specific question. """
@@ -45,6 +55,7 @@ def vote(request, question_pk):
     """ Performs voting action and redirects to results page. """
 
     question = get_object_or_404(Question, pk=question_pk)
+
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
@@ -53,7 +64,7 @@ def vote(request, question_pk):
             'question': question,
             'error_message': "You didn't select a choice.",
         }
-        return render(request, 'detail.html', context)
+        return render(request, 'detail_single.html', context)
     else:
         selected_choice.votes += 1;
         selected_choice.save()
@@ -83,7 +94,8 @@ def parse_data(request):
     next_cursor = 28987
 
     # load all 40 polls
-    num_polls = 40
+    # num_polls = 40
+    num_polls = 1
     for num_poll in range(num_polls):
         next_cursor = parse_pollster_data(base_url.format(next_cursor))
 

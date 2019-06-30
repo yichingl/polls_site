@@ -6,6 +6,8 @@ app_name = 'polls'
 urlpatterns = [
     # url for: /polls/
     url(r'^$', views.index, name='index'),
+    # url for: /polls/questions_list/
+    url(r'^questions_list/$', views.questions_list, name='questions_list'),
     # url for: /polls/<int:pk>/
     url(r'^(?P<question_pk>[0-9]+)/$', views.detail, name='detail'),
     # url for: /polls/<int:pk>/results/
