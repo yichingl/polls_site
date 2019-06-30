@@ -106,7 +106,7 @@ def parse_data(request):
 
     # load all 40 polls
     # num_polls = 40
-    num_polls = 1
+    num_polls = 5
     for num_poll in range(num_polls):
         next_cursor = parse_pollster_data(base_url.format(next_cursor))
 
