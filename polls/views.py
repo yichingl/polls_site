@@ -78,7 +78,8 @@ def vote(request, question_pk):
     else:
         selected_choice.votes += 1;
         selected_choice.save()
-        return HttpResponseRedirect(reverse('polls:results', kwargs={'question_pk': question.pk}))
+        return HttpResponseRedirect(reverse('polls:results',
+            kwargs={'question_pk': question.pk}))
 
 def parse_pol_lean_data(request):
     """ Practice view to parse a list of groups from url. """

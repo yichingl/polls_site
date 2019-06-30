@@ -9,7 +9,8 @@ urlpatterns = [
     # url for: /polls/questions_list/
     url(r'^questions_list/$', views.questions_list, name='questions_list'),
     # url for: /polls/questions_list/
-    url(r'^questions_list/include_empty_questions/$', views.questions_list_include_empty, name='questions_list_include_empty'),
+    url(r'^questions_list/include_empty_questions/$',
+        views.questions_list_include_empty, name='questions_list_include_empty'),
     # url for: /polls/<int:pk>/
     url(r'^(?P<question_pk>[0-9]+)/$', views.detail, name='detail'),
     # url for: /polls/<int:pk>/results/

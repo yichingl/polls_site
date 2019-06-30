@@ -49,7 +49,8 @@ class QuestionModelTest(TestCase):
 
     def test_question_str_name(self):
         question = Question.objects.get(pk=1)
-        expected_object_name = question.question_text + " ({})".format(question.slug)
+        expected_object_name = "{} ({})".format(
+            question.question_text, question.slug)
         self.assertEquals(expected_object_name, str(question))
 
 class ChoiceModelTest(TestCase):

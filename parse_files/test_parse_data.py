@@ -3,7 +3,6 @@ import unittest
 import os
 import datetime, pytz
 
-
 from django.test import TestCase
 
 from parse_data import read_url_data, parse_for_datetime
@@ -11,7 +10,6 @@ from parse_data import parse_for_states, parse_for_very_consv, parse_for_2
 from parse_data import parse_for_pol_lean_groups, parse_ny_data, parse_pollster_data
 
 from polls.models import Question, Choice
-
 
 class ParseStrTestCase(unittest.TestCase):
     """ Tests for misc helper functions. """
@@ -172,7 +170,8 @@ class ParsePollster(TestCase):
 
     def test_pollster_date_of_question_added_to_database(self):
         question = Question.objects.get(pk=1)
-        expected_datetime = pytz.UTC.localize(datetime.datetime(2017, 1, 10, 23, 32, 55))
+        expected_datetime = pytz.UTC.localize(
+            datetime.datetime(2017, 1, 10, 23, 32, 55))
         self.assertEqual(expected_datetime, question.pub_date)
 
     def test_pollster_choice_added_to_database(self):

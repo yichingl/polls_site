@@ -157,8 +157,10 @@ def parse_pollster_data(url):
             # question = Question.objects.get_or_create(
             question = Question.objects.get_or_create(
                 question_text = question_info["text"],
-                pub_date = parse_for_datetime(question_info["question"]["created_at"]),
-                slug = "{}: {}".format(poll_slug,question_info["question"]["slug"]),
+                pub_date = parse_for_datetime(
+                    question_info["question"]["created_at"]),
+                slug = "{}: {}".format(
+                    poll_slug,question_info["question"]["slug"]),
             )[0]
 
             poll_result = question_info["sample_subpopulations"][0]

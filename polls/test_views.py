@@ -37,7 +37,8 @@ class QuestionsIndexViewTest(TestCase):
     def test_index_questions_ordered_by_pub_date(self):
         response = self.client.get(reverse('polls:index'))
         latest_question_list = response.context['latest_question_list']
-        self.assertGreater(latest_question_list[0].pub_date, latest_question_list[4].pub_date)
+        self.assertGreater(latest_question_list[0].pub_date,
+            latest_question_list[4].pub_date)
 
 class QuestionDetailViewTest(TestCase):
 
@@ -56,17 +57,20 @@ class QuestionDetailViewTest(TestCase):
 
     def test_view_url_accessible_by_name(self):
         question = Question.objects.get(pk=1)
-        response = self.client.get(reverse('polls:detail', kwargs={'question_pk': question.pk}))
+        response = self.client.get(reverse('polls:detail',
+            kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
 
     def test_gets_correct_existing_object(self):
         question = Question.objects.get(pk=1)
-        response = self.client.get(reverse('polls:detail', kwargs={'question_pk': question.pk}))
+        response = self.client.get(reverse('polls:detail',
+            kwargs={'question_pk': question.pk}))
         returned_question = response.context['question']
         self.assertEqual(question, returned_question)
 
     def test_returns_404_nonexisting_object(self):
-        response = self.client.get(reverse('polls:detail', kwargs={'question_pk': 30}))
+        response = self.client.get(reverse('polls:detail',
+            kwargs={'question_pk': 30}))
         self.assertEqual(response.status_code, 404)
 
 
@@ -87,7 +91,8 @@ class QuestionResultsViewTest(TestCase):
 
     def test_view_url_accessible_by_name(self):
         question = Question.objects.get(pk=1)
-        response = self.client.get(reverse('polls:results', kwargs={'question_pk': question.pk}))
+        response = self.client.get(reverse('polls:results',
+            kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
 
 class QuestionVoteViewTest(TestCase):
@@ -122,7 +127,8 @@ class QuestionVoteViewTest(TestCase):
 
     def test_view_url_accessible_by_name(self):
         question = Question.objects.get(pk=1)
-        response = self.client.get(reverse('polls:vote', kwargs={'question_pk': question.pk}))
+        response = self.client.get(reverse('polls:vote',
+            kwargs={'question_pk': question.pk}))
         self.assertEqual(response.status_code, 200)
 
     def test_voting_choice_updates(self):
@@ -135,7 +141,8 @@ class QuestionVoteViewTest(TestCase):
         data = {
             'choice': '2'
         }
-        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+        response = self.client.post(reverse('polls:vote',
+            kwargs={'question_pk': question.pk}), data=data)
 
         choice = Choice.objects.get(pk=2)
         new_vote = choice.votes
@@ -147,15 +154,18 @@ class QuestionVoteViewTest(TestCase):
         data = {
             'choice': '1'
         }
-        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+        response = self.client.post(reverse('polls:vote',
+            kwargs={'question_pk': question.pk}), data=data)
         self.assertRedirects(response,
-            expected_url=reverse('polls:results', kwargs={'question_pk': question.pk}),
+            expected_url=reverse('polls:results',
+                kwargs={'question_pk': question.pk}),
             status_code=302, target_status_code=200)
 
     def test_no_choice_selection_returns_error(self):
         question = Question.objects.get(pk=1)
         data = {} # provide no choice
-        response = self.client.post(reverse('polls:vote', kwargs={'question_pk': question.pk}), data=data)
+        response = self.client.post(reverse('polls:vote',
+            kwargs={'question_pk': question.pk}), data=data)
 
         returned_error = response.context['error_message']
         self.assertEqual("You didn't select a choice.", returned_error)
@@ -172,9 +182,3 @@ class ParseDataViewTest(TestCase):
     def test_view_url_accessible_by_name(self):
         response = self.client.get(reverse('polls:load_polls'))
         self.assertEqual(response.status_code, 200)
-    #
-    # def test_pollster_read_all_questions_(self):
-    #     response = self.client.get(reverse('polls:load_polls'))
-    #     expected_number_of_questions = 63
-    #     number_of_questions = Question.objects.count()
-    #     self.assertEqual(expected_number_of_questions, number_of_questions)

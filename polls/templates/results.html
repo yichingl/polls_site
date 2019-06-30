@@ -12,6 +12,7 @@
   <p>This question doesn't have any choices yet!</p>
 {% endif %}
 
-<a href="{% url 'polls:detail' question_pk=question.pk %}">Vote on this question again?</a>
+<a href="{% url 'polls:detail' question_pk=question.pk %}">
+  Vote on this question again?</a>
 <br>
-<a href="{% url 'polls:questions_list' %}">Return to all questions?</a>
+<a href="{% url 'polls:index' %}">Return to index?</a>
