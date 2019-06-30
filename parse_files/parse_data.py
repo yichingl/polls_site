@@ -101,7 +101,7 @@ def parse_ny_data(url):
             # add entry to database
             question = Question.objects.get_or_create(
                 question_text = 'What was your political leaning in {}?'.format(entry["Time"]) ,
-                pub_date = timezone.now(),
+                pub_date = datetime.date(entry["Time"],1,1),
                 slug = 'New_York' + str(entry["Time"])
             )[0]
 
